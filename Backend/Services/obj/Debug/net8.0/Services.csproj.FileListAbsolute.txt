@@ -17,3 +17,4 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\Services\obj\Debug\net8.0\Services.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\Services\obj\Debug\net8.0\refint\Services.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\Services\obj\Debug\net8.0\Services.pdb
 D:\BAO\MAJOR\SE8\Alpha\Backend\Services\obj\Debug\net8.0\ref\Services.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\Services\obj\Debug\net8.0\Services.sourcelink.json

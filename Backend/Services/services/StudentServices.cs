@@ -1,27 +1,36 @@
 ﻿using BusinessObjects.Models;
 using Repositories.interfaces;
+using Repositories.Interfaces;
 using Services.interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.services
 {
-    public class StudentServices : IStudentServices
+    public class StudentServices : Service<User>, IStudentServices
     {
-        private readonly IStudentRepository repo;
+        private readonly IStudentRepository _studentRepository;
 
-        public StudentServices(IStudentRepository repository) { repo = repository; }
-        public Task<List<User>> GetAllStudentsAsync()=> repo.GetAllStudentsAsync();
+        public StudentServices(SchoolDbContext context, IStudentRepository studentRepository)
+            : base(context)
+        {
+            _studentRepository = studentRepository;
+        }
 
-        public Task<User?> GetStudentByIdAsync(Guid id)=>repo.GetStudentByIdAsync(id);
+        public Task<List<User>> GetAllStudentsAsync()
+            => _studentRepository.GetAllStudentsAsync();
 
-        public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)=>repo.GetStudentsByClassAsync(classId, academicYearId);
+        public Task<User?> GetStudentByIdAsync(Guid id)
+            => _studentRepository.GetStudentByIdAsync(id);
 
-        public Task<List<User>> GetStudentsBySchoolAsync(Guid schoolI) => repo.GetStudentsBySchoolAsync(schoolI);
+        public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
+            => _studentRepository.GetStudentsByClassAsync(classId, academicYearId);
 
-        public Task<List<User>> SearchStudentsByNameAsync(string keyword)=> repo.SearchStudentsByNameAsync(keyword);
+        public Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
+            => _studentRepository.GetStudentsBySchoolAsync(schoolId);
+
+        public Task<List<User>> SearchStudentsByNameAsync(string keyword)
+            => _studentRepository.SearchStudentsByNameAsync(keyword);
     }
 }

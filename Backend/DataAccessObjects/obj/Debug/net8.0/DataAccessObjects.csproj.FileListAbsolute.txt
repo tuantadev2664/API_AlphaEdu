@@ -13,3 +13,4 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObje
 D:\BAO\MAJOR\SE8\Alpha\Backend\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
 D:\BAO\MAJOR\SE8\Alpha\Backend\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json

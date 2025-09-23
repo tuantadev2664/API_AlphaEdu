@@ -1,43 +1,36 @@
 ﻿using BusinessObjects.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessObjects
 {
-    public class StudentDAO
+    public class StudentDAO : BaseDAO<User>
     {
-     
-
-        public static async Task<List<User>> GetAllStudentsAsync()
+        public StudentDAO(SchoolDbContext context) : base(context)
         {
-            using var _context = new SchoolDbContext();
-            return await _context.Users
+        }
+
+        public async Task<List<User>> GetAllStudentsAsync()
+        {
+            return await _dbSet
                 .Where(u => u.Role == "student")
                 .ToListAsync();
         }
 
-        public static async Task<User?> GetStudentByIdAsync(Guid id)
+        public async Task<User?> GetStudentByIdAsync(Guid id)
         {
-            using var _context = new SchoolDbContext();
-            return await _context.Users
+            return await _dbSet
                 .FirstOrDefaultAsync(u => u.Id == id && u.Role == "student");
         }
 
-        public static async Task<List<User>> SearchStudentsByNameAsync(string keyword)
+        public async Task<List<User>> SearchStudentsByNameAsync(string keyword)
         {
-            using var _context = new SchoolDbContext();
-            return await _context.Users
+            return await _dbSet
                 .Where(u => u.Role == "student" && u.FullName.Contains(keyword))
                 .ToListAsync();
         }
 
-        public static async Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
+        public async Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
         {
-            using var _context = new SchoolDbContext();
             return await _context.ClassEnrollments
                 .Where(ce => ce.ClassId == classId && ce.AcademicYearId == academicYearId)
                 .Include(ce => ce.Student)
@@ -45,11 +38,9 @@ namespace DataAccessObjects
                 .ToListAsync();
         }
 
-        public static async Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
+        public async Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
         {
-
-            using var _context = new SchoolDbContext();
-            return await _context.Users
+            return await _dbSet
                 .Where(u => u.Role == "student" && u.SchoolId == schoolId)
                 .ToListAsync();
         }

@@ -1,25 +1,59 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using Microsoft.EntityFrameworkCore;
 using Repositories.interfaces;
+using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories.repositories
 {
-    public class StudentRepository : IStudentRepository
+    public class StudentRepository : Repository<User>, IStudentRepository
     {
-        public Task<List<User>> GetAllStudentsAsync() => StudentDAO.GetAllStudentsAsync();
+        private readonly SchoolDbContext _context;
 
-        public Task<User?> GetStudentByIdAsync(Guid id) => StudentDAO.GetStudentByIdAsync(id);
+        public StudentRepository(SchoolDbContext context)
+            : base(new BaseDAO<User>(context))  // vẫn giữ kiểu BaseDAO
+        {
+            _context = context;
+        }
 
-        public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)=>StudentDAO.GetStudentsByClassAsync(classId, academicYearId);
+        public async Task<List<User>> GetAllStudentsAsync()
+        {
+            return await _context.Users
+                .Where(u => u.Role == "student")
+                .ToListAsync();
+        }
 
-        public Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId) => StudentDAO.GetStudentsBySchoolAsync
-            (schoolId);
+        public async Task<User?> GetStudentByIdAsync(Guid id)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == id && u.Role == "student");
+        }
 
-        public Task<List<User>> SearchStudentsByNameAsync(string keyword)=>StudentDAO.SearchStudentsByNameAsync(keyword);
+        public async Task<List<User>> SearchStudentsByNameAsync(string keyword)
+        {
+            return await _context.Users
+                .Where(u => u.Role == "student" && u.FullName.Contains(keyword))
+                .ToListAsync();
+        }
+
+        public async Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
+        {
+            return await _context.ClassEnrollments
+                .Where(ce => ce.ClassId == classId && ce.AcademicYearId == academicYearId)
+                .Include(ce => ce.Student)
+                .Select(ce => ce.Student)
+                .ToListAsync();
+        }
+
+        public async Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
+        {
+            return await _context.Users
+                .Where(u => u.Role == "student" && u.SchoolId == schoolId)
+                .ToListAsync();
+        }
     }
 }

@@ -12,3 +12,4 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.
 D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\bin\Debug\net8.0\BusinessObjects.runtimeconfig.json
 D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.genruntimeconfig.cache
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.sourcelink.json

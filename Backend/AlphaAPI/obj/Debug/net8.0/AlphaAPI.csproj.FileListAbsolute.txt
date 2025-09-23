@@ -17,7 +17,6 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\AlphaAPI.pdb
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -30,7 +29,6 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Pr
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Npgsql.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -58,3 +56,14 @@ D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\obj\Debug\net8.0\refint\AlphaAPI.dll
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\obj\Debug\net8.0\AlphaAPI.pdb
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\obj\Debug\net8.0\AlphaAPI.genruntimeconfig.cache
 D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\obj\Debug\net8.0\ref\AlphaAPI.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\obj\Debug\net8.0\AlphaAPI.sourcelink.json
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\System.Text.Json.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\AlphaAPI\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

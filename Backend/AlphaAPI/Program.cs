@@ -1,6 +1,7 @@
 using BusinessObjects.Models;
 using Microsoft.EntityFrameworkCore;
 using Repositories.interfaces;
+using Repositories.Interfaces;
 using Repositories.repositories;
 using Services.interfaces;
 using Services.services;
@@ -18,8 +19,8 @@ namespace AlphaAPI
             // Repository & Service DI
             builder.Services.AddScoped<IScoreRepository, ScoreRepository>();
             builder.Services.AddScoped<IScoreServices, ScoreServices>();
-
             builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
             builder.Services.AddScoped<IStudentServices, StudentServices>();
 
             builder.Services.AddScoped<IMessageRepository, MessageRepository>();
