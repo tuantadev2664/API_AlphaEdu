@@ -14,6 +14,14 @@ namespace AlphaAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            ConfigurationManager configuration = builder.Configuration;
+
+            // var envPath = Path.Combine("..", ".env");
+            // DotNetEnv.Env.Load(envPath);
+
+            // Add services to the container.
+            configuration.AddEnvironmentVariables();
+
             builder.Services.AddControllers();
 
             // Repository & Service DI
@@ -36,7 +44,7 @@ namespace AlphaAPI
             builder.Services.AddScoped<IAnalyticsServices, AnalyticsServices>();
 
             // PostgreSQL connection
-            var connectionString = builder.Configuration.GetConnectionString("MyDB");
+            var connectionString = configuration.GetConnectionString("MyDB");
             builder.Services.AddDbContext<SchoolDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
@@ -45,10 +53,16 @@ namespace AlphaAPI
 
             var app = builder.Build();
 
-            if (app.Environment.IsDevelopment())
+            var enableSwagger = app.Configuration.GetValue<bool>("Swagger:Enabled");
+
+            if (app.Environment.IsDevelopment() || enableSwagger)
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(options =>
+                {
+                    // options.RoutePrefix = string.Empty; // nếu muốn / là Swagger
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "AlphaAPI v1");
+                });
             }
 
             app.UseHttpsRedirection();
