@@ -9,6 +9,9 @@ jobs:
   ci:
     name: 🧪 Build Docker image (CI)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Backend
 
     steps:
       - name: 📥 Checkout source code
