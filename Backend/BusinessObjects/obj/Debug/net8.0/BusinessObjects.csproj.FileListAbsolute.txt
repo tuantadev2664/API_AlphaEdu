@@ -1,0 +1,14 @@
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\bin\Debug\net8.0\BusinessObjects.deps.json
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\bin\Debug\net8.0\BusinessObjects.pdb
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.AssemblyReference.cache
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfoInputs.cache
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfo.cs
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.CoreCompileInputs.cache
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\refint\BusinessObjects.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\bin\Debug\net8.0\BusinessObjects.runtimeconfig.json
+D:\BAO\MAJOR\SE8\Alpha\Backend\BusinessObjects\obj\Debug\net8.0\BusinessObjects.genruntimeconfig.cache

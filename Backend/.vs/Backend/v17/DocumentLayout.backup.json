@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\analyticsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\analyticsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\announcementservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\announcementservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "AlphaAPI\\appsettings.json",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\appsettings.json",
+              "RelativeToolTip": "AlphaAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-22T14:19:06.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AlphaAPI\\Program.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Program.cs",
+              "RelativeToolTip": "AlphaAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:19:04.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AnnouncementServices.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnnouncementServices.cs",
+              "RelativeDocumentMoniker": "Services\\services\\AnnouncementServices.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnnouncementServices.cs",
+              "RelativeToolTip": "Services\\services\\AnnouncementServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:16:44.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AnalyticsServices.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnalyticsServices.cs",
+              "RelativeDocumentMoniker": "Services\\services\\AnalyticsServices.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnalyticsServices.cs",
+              "RelativeToolTip": "Services\\services\\AnalyticsServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:16:39.106Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 148,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
