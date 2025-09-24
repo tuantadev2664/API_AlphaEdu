@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\AlphaAPI.csproj": {}
+    "D:\\API_AlphaEdu\\Backend\\AlphaAPI\\AlphaAPI.csproj": {}
   },
   "projects": {
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\AlphaAPI.csproj": {
+    "D:\\API_AlphaEdu\\Backend\\AlphaAPI\\AlphaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\AlphaAPI.csproj",
+        "projectUniqueName": "D:\\API_AlphaEdu\\Backend\\AlphaAPI\\AlphaAPI.csproj",
         "projectName": "AlphaAPI",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\AlphaAPI.csproj",
-        "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\obj\\",
+        "projectPath": "D:\\API_AlphaEdu\\Backend\\AlphaAPI\\AlphaAPI.csproj",
+        "packagesPath": "C:\\Users\\Anh Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\API_AlphaEdu\\Backend\\AlphaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\baook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anh Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,24 +26,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj"
+              "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj"
+              "D:\\API_AlphaEdu\\Backend\\Services\\Services.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\Services\\Services.csproj"
               }
             }
           }
@@ -58,7 +57,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -88,24 +87,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+    "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\obj\\",
+        "projectPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\Anh Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\baook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anh Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -114,7 +113,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -133,7 +131,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -192,24 +190,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+    "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
+        "projectUniqueName": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
         "projectName": "DataAccessObjects",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
-        "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\obj\\",
+        "projectPath": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
+        "packagesPath": "C:\\Users\\Anh Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\baook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anh Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -218,15 +216,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               }
             }
           }
@@ -241,7 +238,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -262,24 +259,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj": {
+    "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\obj\\",
+        "projectPath": "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Anh Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\API_AlphaEdu\\Backend\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\baook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anh Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -288,18 +285,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
               }
             }
           }
@@ -314,7 +310,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -335,24 +331,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj": {
+    "D:\\API_AlphaEdu\\Backend\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
+        "projectUniqueName": "D:\\API_AlphaEdu\\Backend\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\obj\\",
+        "projectPath": "D:\\API_AlphaEdu\\Backend\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\Anh Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\API_AlphaEdu\\Backend\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\baook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anh Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -361,21 +357,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj"
+              "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj": {
+                "projectPath": "D:\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -390,7 +385,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -411,7 +406,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
