@@ -3,32 +3,56 @@
   "WorkspaceRootPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\behaviornoteservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\behaviornoteservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\studentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\studentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\dataaccessobjects\\scoredao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\scoredao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\dataaccessobjects\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\interfaces\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\interfaces\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\controllers\\scorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\scorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\scoreservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\scoreservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\repositories\\scorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\repositories\\scorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\interfaces\\iscoreservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\interfaces\\iscoreservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\interfaces\\iscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\interfaces\\iscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\dataaccessobjects\\scoredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\scoredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47DD3BC9-D82C-4E08-BF5C-B1E2AE679453}|BusinessObjects\\BusinessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\businessobjects\\models\\assessment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47DD3BC9-D82C-4E08-BF5C-B1E2AE679453}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\models\\assessment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\dataaccessobjects\\studentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,8 +63,24 @@
       "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\interfaces\\istudentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\interfaces\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\interfaces\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alpha\\backend\\alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\interfaces\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|d:\\bao\\major\\se8\\alpha\\backend\\repositories\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFD04557-B515-4356-A82F-EF1413EE3FB8}|Repositories\\Repositories.csproj|solutionrelative:repositories\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alpha\\backend\\services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|solutionrelative:services\\services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47DD3BC9-D82C-4E08-BF5C-B1E2AE679453}|BusinessObjects\\BusinessObjects.csproj|d:\\bao\\major\\se8\\alpha\\backend\\businessobjects\\models\\schooldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,33 +138,140 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BehaviorNoteServices.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\BehaviorNoteServices.cs",
+              "RelativeDocumentMoniker": "Services\\services\\BehaviorNoteServices.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\BehaviorNoteServices.cs",
+              "RelativeToolTip": "Services\\services\\BehaviorNoteServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T16:22:06.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ScoreDto.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\ScoreDto.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\ScoreDto.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\ScoreDto.cs",
+              "RelativeToolTip": "DataAccessObjects\\ScoreDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T15:21:26.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Assessment.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\Models\\Assessment.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Models\\Assessment.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\Models\\Assessment.cs",
+              "RelativeToolTip": "BusinessObjects\\Models\\Assessment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T15:20:14.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScoreController.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Controllers\\ScoreController.cs",
+              "RelativeDocumentMoniker": "AlphaAPI\\Controllers\\ScoreController.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Controllers\\ScoreController.cs",
+              "RelativeToolTip": "AlphaAPI\\Controllers\\ScoreController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T15:06:38.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ScoreServices.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\ScoreServices.cs",
+              "RelativeDocumentMoniker": "Services\\services\\ScoreServices.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\ScoreServices.cs",
+              "RelativeToolTip": "Services\\services\\ScoreServices.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAvwBYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T15:05:27.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IScoreServices.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\interfaces\\IScoreServices.cs",
+              "RelativeDocumentMoniker": "Services\\interfaces\\IScoreServices.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\interfaces\\IScoreServices.cs",
+              "RelativeToolTip": "Services\\interfaces\\IScoreServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T14:59:20.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ScoreRepository.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\ScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\repositories\\ScoreRepository.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\ScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\repositories\\ScoreRepository.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAvwHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T14:57:01.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IScoreRepository.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\interfaces\\IScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\interfaces\\IScoreRepository.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\interfaces\\IScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\interfaces\\IScoreRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T14:55:12.686Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ScoreDAO.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\ScoreDAO.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\ScoreDAO.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\ScoreDAO.cs",
+              "RelativeToolTip": "DataAccessObjects\\ScoreDAO.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswF4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T14:49:27.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "StudentServices.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\StudentServices.cs",
               "RelativeDocumentMoniker": "Services\\services\\StudentServices.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\StudentServices.cs",
               "RelativeToolTip": "Services\\services\\StudentServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T06:05:03.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T06:05:03.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "Service.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\Service.cs",
               "RelativeDocumentMoniker": "Services\\services\\Service.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\Service.cs",
               "RelativeToolTip": "Services\\services\\Service.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAmwBkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T06:04:19.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T06:04:19.03Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "IStudentServices.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\interfaces\\IStudentServices.cs",
               "RelativeDocumentMoniker": "Services\\interfaces\\IStudentServices.cs",
@@ -136,64 +279,59 @@
               "RelativeToolTip": "Services\\interfaces\\IStudentServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T06:03:34.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T06:03:34.188Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "IService.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\interfaces\\IService.cs",
               "RelativeDocumentMoniker": "Services\\interfaces\\IService.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\interfaces\\IService.cs",
               "RelativeToolTip": "Services\\interfaces\\IService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T06:02:42.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T06:02:42.087Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Services",
+              "DocumentIndex": 18,
+              "Title": "Services.csproj",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
               "RelativeDocumentMoniker": "Services\\Services.csproj",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
               "RelativeToolTip": "Services\\Services.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-23T05:57:51.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:57:51.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 19,
               "Title": "Repository.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\Repository.cs",
               "RelativeDocumentMoniker": "Repositories\\repositories\\Repository.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\Repository.cs",
               "RelativeToolTip": "Repositories\\repositories\\Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T05:56:06.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:56:06.747Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "StudentRepository.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\StudentRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\repositories\\StudentRepository.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\repositories\\StudentRepository.cs",
               "RelativeToolTip": "Repositories\\repositories\\StudentRepository.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAIwCsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T05:55:51.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:55:51.591Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "IStudentRepository.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\interfaces\\IStudentRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\interfaces\\IStudentRepository.cs",
@@ -201,51 +339,47 @@
               "RelativeToolTip": "Repositories\\interfaces\\IStudentRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T05:55:28.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:55:28.794Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "IRepository.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\interfaces\\IRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\interfaces\\IRepository.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\interfaces\\IRepository.cs",
               "RelativeToolTip": "Repositories\\interfaces\\IRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T05:53:14.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:53:14.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "BaseDAO.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\BaseDAO.cs",
               "RelativeDocumentMoniker": "DataAccessObjects\\BaseDAO.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\BaseDAO.cs",
               "RelativeToolTip": "DataAccessObjects\\BaseDAO.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAuwDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAIwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T05:49:17.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T05:49:17.218Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BusinessObjects",
+              "DocumentIndex": 24,
+              "Title": "BusinessObjects.csproj",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
               "RelativeDocumentMoniker": "BusinessObjects\\BusinessObjects.csproj",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
               "RelativeToolTip": "BusinessObjects\\BusinessObjects.csproj",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-23T04:39:56.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T04:39:56.89Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "SchoolDbContext.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\Models\\SchoolDbContext.cs",
               "RelativeDocumentMoniker": "BusinessObjects\\Models\\SchoolDbContext.cs",
@@ -253,38 +387,35 @@
               "RelativeToolTip": "BusinessObjects\\Models\\SchoolDbContext.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAANwBAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T04:39:18.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T04:39:18.487Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "StudentController.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "AlphaAPI\\Controllers\\StudentController.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
               "RelativeToolTip": "AlphaAPI\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwGcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAIwGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T04:36:33.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T04:36:33.11Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "StudentDAO.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\StudentDAO.cs",
               "RelativeDocumentMoniker": "DataAccessObjects\\StudentDAO.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\StudentDAO.cs",
               "RelativeToolTip": "DataAccessObjects\\StudentDAO.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAwDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T04:35:23.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T04:35:23.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\appsettings.json",
               "RelativeDocumentMoniker": "AlphaAPI\\appsettings.json",
@@ -292,25 +423,23 @@
               "RelativeToolTip": "AlphaAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-22T14:19:06.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T14:19:06.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Program.cs",
               "RelativeDocumentMoniker": "AlphaAPI\\Program.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\AlphaAPI\\Program.cs",
               "RelativeToolTip": "AlphaAPI\\Program.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAQwC0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T14:19:04.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T14:19:04.087Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "AnnouncementServices.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnnouncementServices.cs",
               "RelativeDocumentMoniker": "Services\\services\\AnnouncementServices.cs",
@@ -318,12 +447,11 @@
               "RelativeToolTip": "Services\\services\\AnnouncementServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T14:16:44.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T14:16:44.336Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "AnalyticsServices.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\services\\AnalyticsServices.cs",
               "RelativeDocumentMoniker": "Services\\services\\AnalyticsServices.cs",
@@ -331,8 +459,7 @@
               "RelativeToolTip": "Services\\services\\AnalyticsServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T14:16:39.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T14:16:39.106Z"
             }
           ]
         },
