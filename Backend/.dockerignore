@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+**/bin/
+**/obj/
+**/.vscode/
+**/.idea/
+**/*.user
+**/*.suo
+**/*.swp
+**/*.DS_Store
+docker-compose*.yml
+.env

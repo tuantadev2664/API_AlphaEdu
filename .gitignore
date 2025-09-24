@@ -1,0 +1,17 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Visual Studio
+*.user
+*.suo
+*.sln.docstates
+
+# dotnet
+*.dll
+*.pdb
+*.cache
+
+.env
+.env.*
+appsettings.*.json

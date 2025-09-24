@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  alphaapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaapi
+    ports:
+      - "80:8080" # EC2:80 -> container:8080
+    env_file:
+      - .env
+    restart: always
