@@ -1,0 +1,18 @@
+﻿using BusinessObjects.Models;
+using Repositories.interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Repositories.Interfaces
+{
+    // Student repository kế thừa repository base
+    public interface IStudentRepository : IRepository<User>
+    {
+        Task<List<User>> GetAllStudentsAsync();
+        Task<User?> GetStudentByIdAsync(Guid id);
+        Task<List<User>> SearchStudentsByNameAsync(string keyword);
+        Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId);
+        Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId);
+    }
+}
