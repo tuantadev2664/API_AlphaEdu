@@ -1,0 +1,16 @@
+D:\API_AlphaEdu\Backend\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.deps.json
+D:\API_AlphaEdu\Backend\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.dll
+D:\API_AlphaEdu\Backend\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.pdb
+D:\API_AlphaEdu\Backend\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\API_AlphaEdu\Backend\DataAccessObjects\bin\Debug\net8.0\BusinessObjects.pdb
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.AssemblyReference.cache
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfoInputs.cache
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfo.cs
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CoreCompileInputs.cache
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAcce.79975846.Up2Date
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
+D:\API_AlphaEdu\Backend\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll

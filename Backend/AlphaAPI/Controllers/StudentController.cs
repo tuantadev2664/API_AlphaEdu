@@ -63,6 +63,7 @@ namespace AlphaAPI.Controllers
         }
 
         // POST: api/students
+<<<<<<< HEAD
         // [HttpPost]
         // public async Task<IActionResult> Create([FromBody] User student)
         // {
@@ -99,5 +100,43 @@ namespace AlphaAPI.Controllers
         //     await _studentService.DeleteAsync(id);
         //     return NoContent();
         // }
+=======
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] User student)
+        {
+            if (student == null)
+                return BadRequest(new { Message = "Student data is required." });
+
+            await _studentService.AddAsync(student);
+            return CreatedAtAction(nameof(GetById), new { id = student.Id }, student);
+        }
+
+        // PUT: api/students/{id}
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] User student)
+        {
+            if (student == null || id != student.Id)
+                return BadRequest(new { Message = "Invalid student data." });
+
+            var existingStudent = await _studentService.GetByIdAsync(id);
+            if (existingStudent is null)
+                return NotFound(new { Message = "Student not found." });
+
+            await _studentService.UpdateAsync(student);
+            return NoContent();
+        }
+
+        // DELETE: api/students/{id}
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var existingStudent = await _studentService.GetByIdAsync(id);
+            if (existingStudent is null)
+                return NotFound(new { Message = "Student not found." });
+
+            await _studentService.DeleteAsync(id);
+            return NoContent();
+        }
+>>>>>>> newfix
     }
 }
