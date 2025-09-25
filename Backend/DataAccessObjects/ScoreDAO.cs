@@ -82,7 +82,7 @@ namespace DataAccessObjects
                     StudentId = s.StudentId,
                     AssessmentId = s.AssessmentId,
                     Score1 = s.Score1,
-                    IsAbsent = (bool)s.IsAbsent,
+                    IsAbsent = s.IsAbsent,
                     Comment = s.Comment,
                     AssessmentName = s.Assessment.Title,
                     GradeComponentName = s.Assessment.GradeComponent.Name,
