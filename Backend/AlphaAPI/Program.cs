@@ -1,10 +1,13 @@
+using AlphaAPI.Helper;
 using BusinessObjects.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Repositories.interfaces;
 using Repositories.Interfaces;
 using Repositories.repositories;
 using Services.interfaces;
 using Services.services;
+using System.Text;
 
 namespace AlphaAPI
 {
@@ -13,22 +16,24 @@ namespace AlphaAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
             ConfigurationManager configuration = builder.Configuration;
 
-            // var envPath = Path.Combine("..", ".env");
-            // DotNetEnv.Env.Load(envPath);
+            //var envPath = Path.Combine("..", ".env");
+            //DotNetEnv.Env.Load(envPath);
 
-            // Add services to the container.
             configuration.AddEnvironmentVariables();
 
+            // ------------------- Add Services -------------------
             builder.Services.AddControllers();
 
             // Repository & Service DI
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
             builder.Services.AddScoped<IScoreRepository, ScoreRepository>();
             builder.Services.AddScoped<IScoreServices, ScoreServices>();
-            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
             builder.Services.AddScoped<IStudentServices, StudentServices>();
 
             builder.Services.AddScoped<IMessageRepository, MessageRepository>();
@@ -46,27 +51,52 @@ namespace AlphaAPI
             // PostgreSQL connection
             var connectionString = configuration.GetConnectionString("MyDB");
             builder.Services.AddDbContext<SchoolDbContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(connectionString)
+            );
+
+            // JWT Settings
+            builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+
+            // JWT Authentication
+            var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+            builder.Services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = jwtSettings.Issuer,
+                        ValidAudience = jwtSettings.Audience,
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(jwtSettings.Key))
+                    };
+                });
+
+            builder.Services.AddAuthorization();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // ------------------- Build App -------------------
             var app = builder.Build();
 
             var enableSwagger = app.Configuration.GetValue<bool>("Swagger:Enabled");
-
             if (app.Environment.IsDevelopment() || enableSwagger)
             {
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
-                    // options.RoutePrefix = string.Empty; // nếu muốn / là Swagger
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "AlphaAPI v1");
                 });
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();   // 🔑 thêm Authentication trước Authorization
             app.UseAuthorization();
+
             app.MapControllers();
             app.Run();
         }

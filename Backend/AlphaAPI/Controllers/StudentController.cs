@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessObjects.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
-using BusinessObjects.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace AlphaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IStudentServices _studentService;
@@ -19,6 +21,7 @@ namespace AlphaAPI.Controllers
 
         // GET: api/students
         [HttpGet]
+        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetAll()
         {
             var students = await _studentService.GetAllStudentsAsync();
@@ -27,6 +30,7 @@ namespace AlphaAPI.Controllers
 
         // GET: api/students/{id}
         [HttpGet("{id:guid}")]
+        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var student = await _studentService.GetStudentByIdAsync(id);

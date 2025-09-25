@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj": {}
+    "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Services\\Services.csproj": {}
   },
   "projects": {
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+    "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj",
+        "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj",
         "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\obj\\",
+        "outputPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -108,14 +108,14 @@
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+    "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
+        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
         "projectName": "DataAccessObjects",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
+        "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj",
         "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\obj\\",
+        "outputPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -137,8 +137,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               }
             }
           }
@@ -178,14 +178,14 @@
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj": {
+    "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj",
+        "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\obj\\",
+        "outputPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -207,11 +207,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
               }
             }
           }
@@ -251,14 +251,14 @@
         }
       }
     },
-    "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj": {
+    "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
+        "projectUniqueName": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\Services.csproj",
+        "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\baook\\.nuget\\packages\\",
-        "outputPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Services\\obj\\",
+        "outputPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -280,14 +280,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\BusinessObjects\\BusinessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\DataAccessObjects.csproj"
               },
-              "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\BAO\\MAJOR\\SE8\\Alpha\\Backend\\Repositories\\Repositories.csproj"
+              "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj": {
+                "projectPath": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\Repositories\\Repositories.csproj"
               }
             }
           }
