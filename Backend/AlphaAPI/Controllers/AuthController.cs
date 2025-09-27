@@ -55,12 +55,13 @@ namespace AlphaAPI.Controllers
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
-                new Claim(ClaimTypes.Role, user.Role),
-                new Claim("FullName", user.FullName),
-                new Claim("SchoolId", user.SchoolId.ToString())
-            };
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),  
+        new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
+        new Claim(ClaimTypes.Role, user.Role.ToLower()),
+        new Claim("FullName", user.FullName),
+        new Claim("SchoolId", user.SchoolId.ToString())
+    };
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
@@ -72,5 +73,6 @@ namespace AlphaAPI.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

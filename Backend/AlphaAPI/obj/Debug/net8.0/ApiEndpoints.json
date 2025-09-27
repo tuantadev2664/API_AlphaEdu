@@ -325,5 +325,42 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.TeacherAssignmentsController",
+    "Method": "GetMyClasses",
+    "RelativePath": "api/TeacherAssignments/my-classes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.TeacherAssignmentsController",
+    "Method": "GetSubjectsByClass",
+    "RelativePath": "api/TeacherAssignments/subjects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
