@@ -18,8 +18,8 @@ namespace AlphaAPI
             var builder = WebApplication.CreateBuilder(args);
             ConfigurationManager configuration = builder.Configuration;
 
-            //var envPath = Path.Combine("..", ".env");
-            //DotNetEnv.Env.Load(envPath);
+            var envPath = Path.Combine("..", ".env");
+            DotNetEnv.Env.Load(envPath);
 
             configuration.AddEnvironmentVariables();
 
@@ -47,6 +47,9 @@ namespace AlphaAPI
 
             builder.Services.AddScoped<IAnalyticsRepository, AnalyticsRepository>();
             builder.Services.AddScoped<IAnalyticsServices, AnalyticsServices>();
+
+            builder.Services.AddScoped<ITeacherAssignmentRepository, TeacherAssignmentRepository>();
+            builder.Services.AddScoped<ITeacherAssignmentService, TeacherAssignmentService>();
 
             // PostgreSQL connection
             var connectionString = configuration.GetConnectionString("MyDB");
