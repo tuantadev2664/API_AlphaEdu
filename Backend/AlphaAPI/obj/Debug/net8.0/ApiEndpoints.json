@@ -159,6 +159,27 @@
   },
   {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "AnalyzeStudent",
+    "RelativePath": "api/Score/student/{studentId}/term/{termId}/analysis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "GetTranscript",
     "RelativePath": "api/Score/student/{studentId}/term/{termId}/transcript",
     "HttpMethod": "GET",
@@ -362,6 +383,22 @@
       },
       {
         "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.UserController",
+    "Method": "GetUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Guid",
         "IsRequired": false
       }
