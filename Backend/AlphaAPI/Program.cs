@@ -98,7 +98,7 @@ namespace AlphaAPI
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowReactApp",
-                    policy => policy.WithOrigins("http://localhost:3000")
+                    policy => policy.WithOrigins("http://localhost:3000", "https://alpha-edu-three.vercel.app")
                                     .AllowAnyHeader()
                                     .AllowAnyMethod());
             });
