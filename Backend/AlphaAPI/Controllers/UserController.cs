@@ -77,6 +77,68 @@
 //    }
 //}
 
+//using AlphaAPI.Helper;
+//using Microsoft.AspNetCore.Authorization;
+//using Microsoft.AspNetCore.Mvc;
+//using System.Security.Claims;
+//using Services.interfaces;
+
+//[ApiController]
+//[Route("api/[controller]")]
+//public class UserController : ControllerBase
+//{
+//    private readonly IUserService _userService;
+
+//    public UserController(IUserService userService)
+//    {
+//        _userService = userService;
+//    }
+
+//    [HttpPost("login")]
+//    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+//    {
+//        var user = await _userService.LoginAsync(request.Email, request.Password);
+//        if (user == null)
+//            return Unauthorized(new { message = "Email hoặc mật khẩu không đúng" });
+
+//        return Ok(new
+//        {
+//            message = "Login successful. Use Clerk token for API calls.",
+//            user = new
+//            {
+//                user.Id,
+//                user.FullName,
+//                user.Email,
+//                user.Role,
+//                user.SchoolId
+//            }
+//        });
+//    }
+
+//    [Authorize]
+//    [HttpGet("current-user")]
+//    public IActionResult GetCurrentUser()
+//    {
+//        var identity = HttpContext.User.Identity as ClaimsIdentity;
+//        if (identity == null || !identity.IsAuthenticated)
+//            return Unauthorized(new { message = "Token không hợp lệ hoặc đã hết hạn" });
+
+//        var claims = identity.Claims;
+
+//        var user = new
+//        {
+//            Id = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value
+//                 ?? claims.FirstOrDefault(c => c.Type == "sub")?.Value,
+//            FullName = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
+//            Email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
+//            Role = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value,
+//            SchoolId = claims.FirstOrDefault(c => c.Type == "schoolId")?.Value
+//        };
+
+//        return Ok(user);
+//    }
+//}
+
 using AlphaAPI.Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -85,11 +147,11 @@ using Services.interfaces;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
+public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
 
-    public AuthController(IUserService userService)
+    public UserController(IUserService userService)
     {
         _userService = userService;
     }
@@ -116,8 +178,8 @@ public class AuthController : ControllerBase
     }
 
     [Authorize]
-    [HttpGet("current-user")]
-    public IActionResult GetCurrentUser()
+    [HttpGet("{userId}")]
+    public IActionResult GetUserById(string userId)
     {
         var identity = HttpContext.User.Identity as ClaimsIdentity;
         if (identity == null || !identity.IsAuthenticated)
@@ -125,14 +187,21 @@ public class AuthController : ControllerBase
 
         var claims = identity.Claims;
 
+        var currentUserId = claims.FirstOrDefault(c =>
+            c.Type == ClaimTypes.NameIdentifier || c.Type == "sub")?.Value;
+
+        if (currentUserId != userId)
+        {
+            return Forbid("Bạn không có quyền truy cập user này");
+        }
+
         var user = new
         {
-            Id = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value
-                 ?? claims.FirstOrDefault(c => c.Type == "sub")?.Value, // Clerk sub
-            FullName = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
+            Id = currentUserId,
+            FullName = claims.FirstOrDefault(c => c.Type == "FullName")?.Value,
             Email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
             Role = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value,
-            SchoolId = claims.FirstOrDefault(c => c.Type == "schoolId")?.Value
+            SchoolId = claims.FirstOrDefault(c => c.Type == "SchoolId")?.Value
         };
 
         return Ok(user);
