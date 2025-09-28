@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Repositories.interfaces
 {
-    public interface IMessageRepository
+    public interface IMessageRepository : IRepository<Message>
     {
         Task<Message> SendMessageAsync(Message msg);
 
         // Lấy toàn bộ hội thoại giữa 2 người
-        Task<List<Message>> GetConversationAsync(Guid user1, Guid user2);
+        Task<List<Message>> GetConversationAsync(
+              Guid user1, Guid user2,
+              int page = 1, int pageSize = 20);
 
         // Đánh dấu 1 tin nhắn là đã đọc
         Task MarkAsReadAsync(Guid messageId);

@@ -9,23 +9,28 @@ using System.Threading.Tasks;
 
 namespace Services.services
 {
-    public class MessageServices : IMessageServices
+    public class MessageServices : Service<Message>, IMessageServices
     {
-        private readonly IMessageRepository repo;
+        private readonly IMessageRepository _repository;
 
-        public MessageServices(IMessageRepository repository) { repo = repository; }
-        public Task<bool> DeleteMessageAsync(Guid messageId)=>repo.DeleteMessageAsync(messageId);
+        public MessageServices(SchoolDbContext context, IMessageRepository repository)
+            : base(context) // Service<T> CRUD chung
+        {
+            _repository = repository;
+        }
 
-        public Task<List<Message>> GetConversationAsync(Guid user1, Guid user2)=>repo.GetConversationAsync(user1, user2);
+        public Task<bool> DeleteMessageAsync(Guid messageId)=> _repository.DeleteMessageAsync(messageId);
 
-        public Task<List<Message>> GetLatestConversationsAsync(Guid userId)=>repo.GetLatestConversationsAsync(userId);
+        public Task<List<Message>> GetLatestConversationsAsync(Guid userId)=> _repository.GetLatestConversationsAsync(userId);
 
-        public Task<List<Message>> GetUnreadMessagesAsync(Guid userId)=>repo.GetUnreadMessagesAsync(userId);
+        public Task<List<Message>> GetUnreadMessagesAsync(Guid userId)=> _repository.GetUnreadMessagesAsync(userId);
 
-        public Task MarkAsReadAsync(Guid messageId)=>repo.MarkAsReadAsync(messageId);
+        public Task MarkAsReadAsync(Guid messageId)=> _repository.MarkAsReadAsync(messageId);
 
-        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=>repo.MarkConversationAsReadAsync(senderId, receiverId);
+        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=> _repository.MarkConversationAsReadAsync(senderId, receiverId);
 
-        public Task<Message> SendMessageAsync(Message msg)=>repo.SendMessageAsync(msg);
+        public Task<Message> SendMessageAsync(Message msg)=> _repository.SendMessageAsync(msg);
+
+        public Task<List<Message>> GetConversationAsync(Guid user1, Guid user2, int page = 1, int pageSize = 20) => _repository.GetConversationAsync(user1, user2, page, pageSize);
     }
 }

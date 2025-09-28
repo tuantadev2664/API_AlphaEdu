@@ -1,4 +1,5 @@
-﻿using DataAccessObjects;
+﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,15 @@ using System.Threading.Tasks;
 
 namespace Services.interfaces
 {
-    public interface IAnalyticsServices
+    public interface IAnalyticsServices : IService<Score>
     {
-        Task<List<string>> SuggestSubjectsToSupportAsync(Guid classId, Guid termId, decimal threshold = 5.0m);
+        Task<StudentAnalysisDto?> AnalyzeStudentAsync(Guid studentId, Guid termId, decimal threshold = 5.0m);
 
-        Task<List<StudentRiskDto>> GetAtRiskStudentsWithRiskLevelAsync(
-     Guid classId, Guid termId, decimal threshold = 5.0m, int minSubjectsBelowThreshold = 1);
+        //    Task<List<string>> SuggestSubjectsToSupportAsync(Guid classId, Guid termId, decimal threshold = 5.0m);
+
+        //    Task<List<StudentRiskDto>> GetAtRiskStudentsWithRiskLevelAsync(
+        // Guid classId, Guid termId, decimal threshold = 5.0m, int minSubjectsBelowThreshold = 1);
+        //}
     }
+
 }
