@@ -77,9 +77,10 @@
 //    }
 //}
 
-
 using AlphaAPI.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Services.interfaces;
 
 [ApiController]
@@ -112,5 +113,28 @@ public class AuthController : ControllerBase
                 user.SchoolId
             }
         });
+    }
+
+    [Authorize]
+    [HttpGet("current-user")]
+    public IActionResult GetCurrentUser()
+    {
+        var identity = HttpContext.User.Identity as ClaimsIdentity;
+        if (identity == null || !identity.IsAuthenticated)
+            return Unauthorized(new { message = "Token không hợp lệ hoặc đã hết hạn" });
+
+        var claims = identity.Claims;
+
+        var user = new
+        {
+            Id = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value
+                 ?? claims.FirstOrDefault(c => c.Type == "sub")?.Value, // Clerk sub
+            FullName = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
+            Email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
+            Role = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value,
+            SchoolId = claims.FirstOrDefault(c => c.Type == "schoolId")?.Value
+        };
+
+        return Ok(user);
     }
 }
