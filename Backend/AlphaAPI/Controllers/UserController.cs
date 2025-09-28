@@ -95,6 +95,31 @@ namespace AlphaAPI.Controllers
 
             return Ok(currentUser);
         }
+
+        [HttpGet]
+        [Authorize] // Token JWT cần hợp lệ
+        public async Task<IActionResult> GetUser([FromQuery] Guid userId)
+        {
+            var user = await _userService.GetByIdAsync(userId);
+            if (user == null)
+                return NotFound(new { success = false, message = "Không tìm thấy user" });
+
+            return Ok(new
+            {
+                success = true,
+                user = new
+                {
+                    user.Id,
+                    user.FullName,
+                    user.Email,
+                    user.Role,
+                    user.SchoolId
+                }
+            });
+        }
+
+
+
     }
 }
 

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessObjects.Models;
+using DataAccessObjects;
+using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
-using BusinessObjects.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -11,11 +12,14 @@ namespace AlphaAPI.Controllers
     public class ScoreController : ControllerBase
     {
         private readonly IScoreServices _scoreService;
+        private readonly IAnalyticsServices _analyticsService;
 
-        public ScoreController(IScoreServices scoreService)
+        public ScoreController(IScoreServices scoreService, IAnalyticsServices analyticsService)
         {
             _scoreService = scoreService;
+            _analyticsService = analyticsService;
         }
+
 
         // POST: api/score
         [HttpPost]
@@ -109,5 +113,51 @@ namespace AlphaAPI.Controllers
             var transcript = await _scoreService.GetTranscriptByStudentAsync(studentId, termId);
             return Ok(transcript);
         }
+
+        // GET: api/score/student/{studentId}/term/{termId}/analysis
+        [HttpGet("student/{studentId:guid}/term/{termId:guid}/analysis")]
+        public async Task<IActionResult> AnalyzeStudent(Guid studentId, Guid termId)
+        {
+            // Gọi AnalyticsService để phân tích học sinh
+            var analysis = await _analyticsService.AnalyzeStudentAsync(studentId, termId);
+
+            if (analysis == null)
+                return NotFound(new { Message = "No analysis found for this student in this term." });
+
+            return Ok(analysis);
+        }
+
+        [HttpPost("save-and-analyze")]
+        public async Task<IActionResult> SaveAndAnalyze([FromBody] Score score)
+        {
+            if (score == null)
+                return BadRequest(new { Message = "Score data is required." });
+
+            // Kiểm tra điểm đã tồn tại
+            var exists = await _scoreService.ScoreExistsAsync(score.AssessmentId, score.StudentId);
+
+            if (exists)
+            {
+                // Nếu đã có, cập nhật điểm
+                await _scoreService.UpdateAsync(score);
+            }
+            else
+            {
+                // Nếu chưa có, thêm mới
+                await _scoreService.AddAsync(score);
+            }
+
+            // Gọi AnalyticsService để phân tích học sinh
+            var termId = score.Assessment.GradeComponent.TermId;
+            var analysis = await _analyticsService.AnalyzeStudentAsync(score.StudentId, termId);
+
+            return Ok(new
+            {
+                Message = "Score saved successfully",
+                Score = score,
+                Analysis = analysis // có thể null
+            });
+        }
+
     }
 }
