@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
+using Services.services;
 using System;
 using System.Threading.Tasks;
 
@@ -13,10 +14,12 @@ namespace AlphaAPI.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentServices _studentService;
+        private readonly IAnalyticsServices _analyticsService;
 
-        public StudentController(IStudentServices studentService)
+        public StudentController(IStudentServices studentService, IAnalyticsServices analyticsService)
         {
             _studentService = studentService;
+            _analyticsService = analyticsService;
         }
 
         // GET: api/students
@@ -103,5 +106,17 @@ namespace AlphaAPI.Controllers
             await _studentService.DeleteAsync(id);
             return NoContent();
         }
+
+        [HttpGet("student/{studentId:guid}/term/{termId:guid}")]
+        public async Task<IActionResult> AnalyzeStudent(Guid studentId, Guid termId)
+        {
+            var result = await _analyticsService.AnalyzeStudentAsync(studentId, termId);
+
+            if (result == null)
+                return NotFound(new { Message = "No analysis found for this student in this term." });
+
+            return Ok(result);
+        }
+
     }
 }

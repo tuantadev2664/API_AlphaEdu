@@ -311,6 +311,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AlphaAPI.Controllers.StudentController",
+    "Method": "AnalyzeStudent",
+    "RelativePath": "api/Student/student/{studentId}/term/{termId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AlphaAPI.Controllers.TeacherAssignmentsController",
     "Method": "GetMyClasses",
     "RelativePath": "api/TeacherAssignments/my-classes",
@@ -348,23 +369,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserController",
-    "Method": "GetUserById",
-    "RelativePath": "api/User/{userId}",
+    "ContainingType": "AlphaAPI.Controllers.UserController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/User/current",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserController",
+    "ContainingType": "AlphaAPI.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/User/login",
     "HttpMethod": "POST",

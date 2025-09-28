@@ -9,20 +9,27 @@ using System.Threading.Tasks;
 
 namespace Repositories.repositories
 {
-    public class MessageRepository : IMessageRepository
+    public class MessageRepository : Repository<Message>, IMessageRepository
+{
+    private readonly MessageDAO _messDAO;
+
+    public MessageRepository(SchoolDbContext context) : base(new MessageDAO(context))
     {
-        public Task<bool> DeleteMessageAsync(Guid messageId)=> MessageDAO.DeleteMessageAsync(messageId);
+            _messDAO = new MessageDAO(context);
+    }
 
-        public Task<List<Message>> GetConversationAsync(Guid user1, Guid user2)=> MessageDAO.GetConversationAsync(user1, user2);
+        public Task<bool> DeleteMessageAsync(Guid messageId)=> _messDAO.DeleteMessageAsync(messageId);
 
-        public Task<List<Message>> GetLatestConversationsAsync(Guid userId)=>MessageDAO.GetLatestConversationsAsync(userId);
+        public Task<List<Message>> GetConversationAsync(Guid user1, Guid user2, int page = 1, int pageSize = 20)=>_messDAO.GetConversationAsync(user1, user2, page, pageSize);  
 
-        public Task<List<Message>> GetUnreadMessagesAsync(Guid userId)=>MessageDAO.GetUnreadMessagesAsync(userId);
+        public Task<List<Message>> GetLatestConversationsAsync(Guid userId)=>_messDAO.GetLatestConversationsAsync(userId);
 
-        public Task MarkAsReadAsync(Guid messageId) => MessageDAO.MarkAsReadAsync(messageId);   
+        public Task<List<Message>> GetUnreadMessagesAsync(Guid userId)=>_messDAO.GetUnreadMessagesAsync(userId);
 
-        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=> MessageDAO.MarkConversationAsReadAsync(senderId, receiverId);
+        public Task MarkAsReadAsync(Guid messageId)=>_messDAO.MarkAsReadAsync(messageId);
 
-        public Task<Message> SendMessageAsync(Message msg)=>MessageDAO.SendMessageAsync(msg);
+        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=>_messDAO.MarkConversationAsReadAsync(senderId, receiverId);
+
+        public Task<Message> SendMessageAsync(Message msg)=>_messDAO.SendMessageAsync(msg);
     }
 }

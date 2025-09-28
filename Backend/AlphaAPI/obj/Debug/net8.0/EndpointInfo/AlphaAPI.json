@@ -490,6 +490,38 @@
         }
       }
     },
+    "/api/Student/student/{studentId}/term/{termId}": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TeacherAssignments/my-classes": {
       "get": {
         "tags": [
@@ -573,20 +605,10 @@
         }
       }
     },
-    "/api/User/{userId}": {
+    "/api/User/current": {
       "get": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {

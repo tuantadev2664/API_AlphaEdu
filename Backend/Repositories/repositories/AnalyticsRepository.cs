@@ -1,18 +1,28 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
-using Repositories.interfaces;
+using Repositories.Interfaces;
+using Repositories.repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.repositories
+namespace Repositories.Repositories
 {
-    public class AnalyticsRepository : IAnalyticsRepository
+    public class AnalyticsRepository : Repository<Score>, IAnalyticsRepository
     {
-        public Task<List<StudentRiskDto>> GetAtRiskStudentsWithRiskLevelAsync(Guid classId, Guid termId, decimal threshold = 5.0M, int minSubjectsBelowThreshold = 1) => AnalyticsDAO.GetAtRiskStudentsWithCommentsAsync(classId, termId, threshold, minSubjectsBelowThreshold);
+        private readonly AnalyticsDAO _analyticsDAO;
 
-        public Task<List<string>> SuggestSubjectsToSupportAsync(Guid classId, Guid termId, decimal threshold = 5.0M) => AnalyticsDAO.SuggestSubjectsToSupportAsync(classId, termId, threshold);
+        public AnalyticsRepository(SchoolDbContext context)
+            : base(new AnalyticsDAO(context)) // dùng base chuẩn
+        {
+            _analyticsDAO = new AnalyticsDAO(context); // ép kiểu để dùng hàm riêng
+        }
+
+        public Task<StudentAnalysisDto?> AnalyzeStudentAsync(Guid studentId, Guid termId, decimal threshold = 5.0M)
+            => _analyticsDAO.AnalyzeStudentAsync(studentId, termId, threshold);
+
+        // Nếu sau này cần thêm:
+        // public Task<List<StudentRiskDto>> GetAtRiskStudentsWithRiskLevelAsync(...) 
+        //     => _analyticsDAO.GetAtRiskStudentsWithRiskLevelAsync(...);
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Repositories.interfaces;
 using Repositories.Interfaces;
 using Repositories.repositories;
+using Repositories.Repositories;
 using Services.interfaces;
 using Services.services;
 using System.Text;
@@ -60,37 +61,38 @@ namespace AlphaAPI
             // JWT Settings
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
-            // JWT Authentication
-            //var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
-            //builder.Services.AddAuthentication("Bearer")
-            //    .AddJwtBearer("Bearer", options =>
-            //    {
-            //        options.TokenValidationParameters = new TokenValidationParameters
-            //        {
-            //            ValidateIssuer = true,
-            //            ValidateAudience = true,
-            //            ValidateLifetime = true,
-            //            ValidateIssuerSigningKey = true,
-            //            ValidIssuer = jwtSettings.Issuer,
-            //            ValidAudience = jwtSettings.Audience,
-            //            IssuerSigningKey = new SymmetricSecurityKey(
-            //                Encoding.UTF8.GetBytes(jwtSettings.Key))
-            //        };
-            //    });
-
+            var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
             builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer("Bearer", options =>
-    {
-        options.Authority = configuration["Clerk:Authority"];   
-        options.Audience = configuration["Clerk:Audience"];     
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = false,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true
-        };
-    });
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = jwtSettings.Issuer,
+                        ValidAudience = jwtSettings.Audience,
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(jwtSettings.Key))
+                    };
+                });
+            //        // Thêm sau phần builder.Services.AddControllers();
+            //        builder.Services.AddHttpClient<ClerkService>();
+
+            //        builder.Services.AddAuthentication("Bearer")
+            //.AddJwtBearer("Bearer", options =>
+            //{
+            //    options.Authority = configuration["Clerk:Authority"];
+            //    options.Audience = configuration["Clerk:Audience"];
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = false,
+            //        ValidateLifetime = true,
+            //        ValidateIssuerSigningKey = true
+            //    };
+            //});
 
             builder.Services.AddAuthorization();
             builder.Services.AddCors(options =>

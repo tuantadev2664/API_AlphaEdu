@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Services.services
 {
     public class TeacherAssignmentService : Service<TeacherAssignment>, ITeacherAssignmentService
+
     {
         private readonly ITeacherAssignmentRepository _repository;
 
