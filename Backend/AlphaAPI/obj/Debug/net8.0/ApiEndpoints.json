@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "AlphaAPI.Controllers.AuthController",
+    "ContainingType": "AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",

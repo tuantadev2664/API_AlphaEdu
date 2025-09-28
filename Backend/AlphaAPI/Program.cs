@@ -18,8 +18,8 @@ namespace AlphaAPI
             var builder = WebApplication.CreateBuilder(args);
             ConfigurationManager configuration = builder.Configuration;
 
-            var envPath = Path.Combine("..", ".env");
-            DotNetEnv.Env.Load(envPath);
+            //var envPath = Path.Combine("..", ".env");
+            //DotNetEnv.Env.Load(envPath);
 
             configuration.AddEnvironmentVariables();
 
@@ -61,24 +61,45 @@ namespace AlphaAPI
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
             // JWT Authentication
-            var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+            //var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+            //builder.Services.AddAuthentication("Bearer")
+            //    .AddJwtBearer("Bearer", options =>
+            //    {
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateLifetime = true,
+            //            ValidateIssuerSigningKey = true,
+            //            ValidIssuer = jwtSettings.Issuer,
+            //            ValidAudience = jwtSettings.Audience,
+            //            IssuerSigningKey = new SymmetricSecurityKey(
+            //                Encoding.UTF8.GetBytes(jwtSettings.Key))
+            //        };
+            //    });
+
             builder.Services.AddAuthentication("Bearer")
-                .AddJwtBearer("Bearer", options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = jwtSettings.Issuer,
-                        ValidAudience = jwtSettings.Audience,
-                        IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(jwtSettings.Key))
-                    };
-                });
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Authority = configuration["Clerk:Authority"];   
+        options.Audience = configuration["Clerk:Audience"];     
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true
+        };
+    });
 
             builder.Services.AddAuthorization();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp",
+                    policy => policy.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod());
+            });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -99,7 +120,7 @@ namespace AlphaAPI
             app.UseHttpsRedirection();
             app.UseAuthentication();   // 🔑 thêm Authentication trước Authorization
             app.UseAuthorization();
-
+            app.UseCors("AllowReactApp");
             app.MapControllers();
             app.Run();
         }

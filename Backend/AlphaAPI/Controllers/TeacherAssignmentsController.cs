@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AlphaAPI.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
 using System.Security.Claims;
@@ -17,18 +18,18 @@ namespace AlphaAPI.Controllers
             _service = service;
         }
 
-        private Guid GetCurrentUserId()
-        {
-            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return Guid.Parse(id);
-        }
+        //private Guid GetCurrentUserId()
+        //{
+        //    var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    return Guid.Parse(id);
+        //}
 
 
         // GET: api/teacherassignments/my-classes?academicYearId=...
         [HttpGet("my-classes")]
         public async Task<IActionResult> GetMyClasses([FromQuery] Guid academicYearId)
         {
-            var teacherId = GetCurrentUserId();
+            var teacherId = UserHelper.GetCurrentUserId(User);
             var classes = await _service.GetClassesByTeacherAsync(teacherId, academicYearId);
 
             if (classes == null || classes.Count == 0)
@@ -41,7 +42,8 @@ namespace AlphaAPI.Controllers
         [HttpGet("subjects")]
         public async Task<IActionResult> GetSubjectsByClass([FromQuery] Guid classId, [FromQuery] Guid academicYearId)
         {
-            var teacherId = GetCurrentUserId();
+            //var teacherId = GetCurrentUserId();
+            var teacherId = UserHelper.GetCurrentUserId(User);
             var subjects = await _service.GetSubjectsByTeacherAndClassAsync(teacherId, classId, academicYearId);
 
             if (subjects == null || subjects.Count == 0)
