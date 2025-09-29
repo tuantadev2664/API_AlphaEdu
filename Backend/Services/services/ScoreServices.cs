@@ -45,5 +45,7 @@ namespace Services.services
             => _scoreRepository.GetTranscriptByStudentAsync(studentId, termId);
 
         public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId) => _scoreRepository.GetStudentScoresByClassAndSubjectAsync(classId, subjectId,termId);
+
+        public Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)=>_scoreRepository.GetClassRankingAsync(classId,termId);
     }
 }

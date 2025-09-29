@@ -163,7 +163,7 @@ namespace AlphaAPI.Controllers
             {
                 Message = "Score saved successfully",
                 Score = score,
-                Analysis = analysis // có thể null
+                Analysis = analysis 
             });
         }
 
@@ -176,6 +176,12 @@ namespace AlphaAPI.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet("class/{classId:guid}/term/{termId:guid}/ranking")]
+        [Authorize(Roles = "teacher,admin")]
+        public async Task<IActionResult> GetClassRanking(Guid classId, Guid termId)
+        {
+            var ranking = await _scoreService.GetClassRankingAsync(classId, termId);
+            return Ok(ranking);
+        }
     }
 }

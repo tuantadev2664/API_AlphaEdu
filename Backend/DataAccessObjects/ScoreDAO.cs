@@ -201,6 +201,7 @@ namespace DataAccessObjects
                         MaxScore = gc.MaxScore,
                         AssessmentId = sc?.AssessmentId,
                         AssessmentName = sc?.Assessment?.Title,
+                        ScoreId = sc?.Id,
                         Score = sc?.Score1,
                         IsAbsent = sc?.IsAbsent ?? false,
                         Comment = sc?.Comment
@@ -211,6 +212,63 @@ namespace DataAccessObjects
             return result;
         }
 
+        public async Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)
+        {
+            // lấy students trong lớp theo năm học
+            var term = await _context.Terms.FindAsync(termId);
+            if (term == null) return new List<StudentRankingDto>();
+
+            var students = await _context.ClassEnrollments
+                .Where(ce => ce.ClassId == classId && ce.AcademicYearId == term.AcademicYearId)
+                .Select(ce => ce.Student)
+                .ToListAsync();
+
+            // lấy điểm
+            var scores = await _context.Scores
+                .Include(s => s.Assessment)
+                    .ThenInclude(a => a.GradeComponent)
+                .Where(s => s.Assessment.GradeComponent.ClassId == classId
+                         && s.Assessment.GradeComponent.TermId == termId)
+                .ToListAsync();
+
+            // tính ranking
+            var ranking = students.Select(st =>
+            {
+                var studentScores = scores.Where(s => s.StudentId == st.Id).ToList();
+
+                if (!studentScores.Any())
+                {
+                    return new StudentRankingDto
+                    {
+                        StudentId = st.Id,
+                        FullName = st.FullName,
+                        Average = null,
+                        Rank = null
+                    };
+                }
+
+                var totalWeight = studentScores.Sum(s => s.Assessment.GradeComponent.Weight);
+                var weightedScore = studentScores.Sum(s => (s.Score1 ?? 0) * s.Assessment.GradeComponent.Weight);
+                var avg = totalWeight > 0 ? Math.Round(weightedScore / totalWeight, 2) : (decimal?)null;
+
+                return new StudentRankingDto
+                {
+                    StudentId = st.Id,
+                    FullName = st.FullName,
+                    Average = avg
+                };
+            }).Where(r => r.Average != null)
+              .OrderByDescending(r => r.Average)
+              .ToList();
+
+            // gán Rank
+            for (int i = 0; i < ranking.Count; i++)
+            {
+                ranking[i].Rank = i + 1;
+            }
+
+            return ranking;
+        }
 
 
 

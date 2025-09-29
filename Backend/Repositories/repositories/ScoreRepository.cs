@@ -34,5 +34,7 @@ public class ScoreRepository : Repository<Score>, IScoreRepository
     public Task<Dictionary<string, decimal?>> GetTranscriptByStudentAsync(Guid studentId, Guid termId) =>
         _scoreDAO.GetTranscriptByStudentAsync(studentId, termId);
 
-    public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId)=> _scoreDAO.GetStudentScoresByClassAndSubjectAsync(classId, subjectId, termId);   
+    public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId)=> _scoreDAO.GetStudentScoresByClassAndSubjectAsync(classId, subjectId, termId);
+
+    public Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)=>_scoreDAO.GetClassRankingAsync(@classId, termId);
 }
