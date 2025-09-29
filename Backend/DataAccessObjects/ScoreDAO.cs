@@ -1,5 +1,6 @@
 ﻿
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -155,6 +156,63 @@ namespace DataAccessObjects
 
             return transcript;
         }
+
+        public async Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId)
+        {
+            // Lấy Term để xác định năm học
+            var term = await _context.Terms.FindAsync(termId);
+            if (term == null) return new List<StudentScoresDto>();
+
+            // Lấy danh sách học sinh trong lớp theo năm học
+            var students = await _context.ClassEnrollments
+                .Where(ce => ce.ClassId == classId && ce.AcademicYearId == term.AcademicYearId)
+                .Include(ce => ce.Student)
+                .Select(ce => ce.Student)
+                .ToListAsync();
+
+            // Lấy tất cả gradeComponents của môn trong kỳ
+            var gradeComponents = await _context.GradeComponents
+                .Where(gc => gc.ClassId == classId && gc.SubjectId == subjectId && gc.TermId == termId)
+                .ToListAsync();
+
+            // Lấy toàn bộ điểm có liên quan
+            var scores = await _dbSet
+                .Include(s => s.Assessment)
+                .Where(s => s.Assessment.GradeComponent.ClassId == classId
+                            && s.Assessment.GradeComponent.SubjectId == subjectId
+                            && s.Assessment.GradeComponent.TermId == termId)
+                .ToListAsync();
+
+            // Build kết quả
+            var result = students.Select(st => new StudentScoresDto
+            {
+                StudentId = st.Id,
+                FullName = st.FullName,
+                Scores = gradeComponents.Select(gc =>
+                {
+                    var sc = scores.FirstOrDefault(s => s.StudentId == st.Id && s.Assessment.GradeComponentId == gc.Id);
+
+                    return new ScoreColumnDto
+                    {
+                        GradeComponentId = gc.Id,
+                        GradeComponentName = gc.Name,
+                        Kind = gc.Kind,
+                        Weight = gc.Weight,
+                        MaxScore = gc.MaxScore,
+                        AssessmentId = sc?.AssessmentId,
+                        AssessmentName = sc?.Assessment?.Title,
+                        Score = sc?.Score1,
+                        IsAbsent = sc?.IsAbsent ?? false,
+                        Comment = sc?.Comment
+                    };
+                }).ToList()
+            }).ToList();
+
+            return result;
+        }
+
+
+
 
 
     }

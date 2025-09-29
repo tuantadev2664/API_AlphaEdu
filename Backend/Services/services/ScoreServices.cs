@@ -1,6 +1,7 @@
 ﻿
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Services.interfaces;
 using System;
@@ -42,5 +43,7 @@ namespace Services.services
         // TRANSCRIPT (all subjects in a term for a student)
         public Task<Dictionary<string, decimal?>> GetTranscriptByStudentAsync(Guid studentId, Guid termId)
             => _scoreRepository.GetTranscriptByStudentAsync(studentId, termId);
+
+        public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId) => _scoreRepository.GetStudentScoresByClassAndSubjectAsync(classId, subjectId,termId);
     }
 }

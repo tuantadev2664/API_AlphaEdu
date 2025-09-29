@@ -1,6 +1,7 @@
 ﻿
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,5 +16,6 @@ namespace Repositories.interfaces
         Task<bool> ScoreExistsAsync(Guid assessmentId, Guid studentId);
         Task<decimal?> GetAverageScoreByStudentAndSubjectAsync(Guid studentId, Guid subjectId, Guid termId);
         Task<Dictionary<string, decimal?>> GetTranscriptByStudentAsync(Guid studentId, Guid termId);
+        Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId);
     }
 }
