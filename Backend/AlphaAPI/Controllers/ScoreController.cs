@@ -49,18 +49,25 @@ namespace AlphaAPI.Controllers
 
         // PUT: api/score/{id}
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] Score score)
+        public async Task<IActionResult> Update(Guid id, [FromBody] ScoreUpdateDto dto)
         {
-            if (score == null || id != score.Id)
+            if (dto == null || id != dto.Id)
                 return BadRequest(new { Message = "Invalid score data." });
 
             var existing = await _scoreService.GetByIdAsync(id);
             if (existing == null)
                 return NotFound(new { Message = "Score not found." });
 
-            await _scoreService.UpdateAsync(score); // CRUD base
-            return Ok(score);
+            // Cập nhật các field cần thiết
+            existing.Score1 = dto.Score1;
+            existing.IsAbsent = dto.IsAbsent ?? false;
+            existing.Comment = dto.Comment;
+            existing.UpdatedAt = DateTime.UtcNow;
+
+            await _scoreService.UpdateAsync(existing);
+            return Ok(existing);
         }
+
 
         // DELETE: api/score/{id}
         [HttpDelete("{id:guid}")]

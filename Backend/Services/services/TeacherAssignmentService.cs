@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using Repositories.interfaces;
 using Services.interfaces;
 using System;
@@ -20,8 +21,10 @@ namespace Services.services
             _repository = repository;
         }
 
-        public Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId) =>
-            _repository.GetClassesByTeacherAsync(teacherId, academicYearId);
+        public Task<List<ClassWithStudentCountDto>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId)=>_repository.GetClassesByTeacherAsync(teacherId, academicYearId);
+
+        //public Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId) =>
+        //    _repository.GetClassesByTeacherAsync(teacherId, academicYearId);
 
         public Task<List<Subject>> GetSubjectsByTeacherAndClassAsync(Guid teacherId, Guid classId, Guid academicYearId) =>
             _repository.GetSubjectsByTeacherAndClassAsync(teacherId, classId, academicYearId);

@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Services.interfaces
 {
     public interface ITeacherAssignmentService : IService<TeacherAssignment>
     {
-        Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId);
+        //Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId);
+        Task<List<ClassWithStudentCountDto>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId);
         Task<List<Subject>> GetSubjectsByTeacherAndClassAsync(Guid teacherId, Guid classId, Guid academicYearId);
     }
 }

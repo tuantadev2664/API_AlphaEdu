@@ -77,17 +77,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Score"
+                "$ref": "#/components/schemas/ScoreUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Score"
+                "$ref": "#/components/schemas/ScoreUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Score"
+                "$ref": "#/components/schemas/ScoreUpdateDto"
               }
             }
           }
@@ -314,6 +314,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Score/save-and-analyze": {
+      "post": {
+        "tags": [
+          "Score"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Score"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Score"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Score"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1228,6 +1259,29 @@
           },
           "student": {
             "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScoreUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "score1": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isAbsent": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

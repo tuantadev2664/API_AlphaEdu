@@ -19,8 +19,11 @@ namespace Repositories.repositories
             _dao = new TeacherAssignmentDAO(context);
         }
 
-        public Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId) =>
-            _dao.GetClassesByTeacherAsync(teacherId, academicYearId);
+        public Task<List<ClassWithStudentCountDto>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId)=>_dao.GetClassesByTeacherAsync(teacherId, academicYearId);
+
+        //public Task<List<Class>> GetClassesByTeacherAsync(Guid teacherId, Guid academicYearId) =>
+        //    _dao.GetClassesByTeacherAsync(teacherId, academicYearId);
+
 
         public Task<List<Subject>> GetSubjectsByTeacherAndClassAsync(Guid teacherId, Guid classId, Guid academicYearId) =>
             _dao.GetSubjectsByTeacherAndClassAsync(teacherId, classId, academicYearId);
