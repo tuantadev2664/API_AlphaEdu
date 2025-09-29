@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -57,11 +58,11 @@ namespace DataAccessObjects
                 comment = $"Điểm trung bình {avg:F2}, có {belowCount} môn dưới chuẩn. Cần cải thiện.";
             }
 
-            // Phân tích từng môn
+            // Phân tích từng môn + từng cột điểm
             var subjects = scores
-                .GroupBy(s => s.Assessment.GradeComponent.Subject.Name)
+                .GroupBy(s => s.Assessment.GradeComponent.Subject)
                 .ToDictionary(
-                    g => g.Key,
+                    g => g.Key.Name,
                     g =>
                     {
                         var totalWeight = g.Sum(s => s.Assessment.GradeComponent.Weight);
@@ -83,19 +84,57 @@ namespace DataAccessObjects
                             subjectComment = $"Điểm trung bình {average:F2}, {below} bài dưới chuẩn. Khuyến nghị ôn tập.";
                         }
 
+                        // ✅ phân tích chi tiết từng GradeComponent
+                        var components = g
+                            .GroupBy(s => s.Assessment.GradeComponent)
+                            .Select(gc =>
+                            {
+                                var avgComp = gc.Average(s => s.Score1 ?? 0);
+                                var belowComp = gc.Count(s => (s.Score1 ?? 0) < threshold);
+
+                                string compRisk = "Thấp";
+                                string compComment = "Ổn định.";
+                                if (avgComp < threshold - 2 || belowComp >= 3)
+                                {
+                                    compRisk = "Cao";
+                                    compComment = $"⚠️ Rủi ro cao: trung bình {avgComp:F2}, {belowComp} bài dưới chuẩn.";
+                                }
+                                else if (avgComp < threshold || belowComp >= 1)
+                                {
+                                    compRisk = "Trung Bình";
+                                    compComment = $"Trung bình {avgComp:F2}, {belowComp} bài dưới chuẩn.";
+                                }
+
+                                return new ComponentAnalysisDto
+                                {
+                                    GradeComponentId = gc.Key.Id,
+                                    GradeComponentName = gc.Key.Name,
+                                    Kind = gc.Key.Kind,
+                                    Weight = gc.Key.Weight,
+                                    MaxScore = gc.Key.MaxScore,
+                                    Average = Math.Round(avgComp, 2),
+                                    Count = gc.Count(),
+                                    BelowThresholdCount = belowComp,
+                                    RiskLevel = compRisk,
+                                    Comment = compComment
+                                };
+                            }).ToList();
+
                         return new SubjectAnalysisDto
                         {
                             Average = average,
                             AssignmentsCount = g.Count(),
                             BelowThresholdCount = below,
                             RiskLevel = subjectRisk,
-                            Comment = subjectComment
+                            Comment = subjectComment,
+                            Components = components
                         };
                     });
 
-            // Tóm tắt tổng quan
+            // ✅ Tóm tắt
             string summary = $"Học sinh {student.FullName} có trung bình {avg:F2} trong học kỳ này, {belowCount} môn dưới chuẩn, mức rủi ro {risk}.";
 
+            // ✅ Trả về kết quả cuối cùng
             return new StudentAnalysisDto
             {
                 StudentId = student.Id,

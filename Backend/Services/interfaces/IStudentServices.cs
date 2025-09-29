@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 
 namespace Services.interfaces
 {
@@ -6,7 +7,7 @@ namespace Services.interfaces
     {
         Task<List<User>> GetAllStudentsAsync();
 
-        Task<User?> GetStudentByIdAsync(Guid id);
+        Task<StudentDetailDto?> GetStudentByIdAsync(Guid id);
 
         Task<List<User>> SearchStudentsByNameAsync(string keyword);
 

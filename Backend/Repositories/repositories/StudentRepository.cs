@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.Interfaces;
 using Repositories.repositories;
 using System;
@@ -21,8 +22,7 @@ namespace Repositories.Repositories
         public async Task<List<User>> GetAllStudentsAsync()
             => await _studentDAO.GetAllStudentsAsync();
 
-        public async Task<User?> GetStudentByIdAsync(Guid id)
-            => await _studentDAO.GetStudentByIdAsync(id);
+       
 
         public async Task<List<User>> SearchStudentsByNameAsync(string keyword)
             => await _studentDAO.SearchStudentsByNameAsync(keyword);
@@ -32,5 +32,7 @@ namespace Repositories.Repositories
 
         public async Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
             => await _studentDAO.GetStudentsBySchoolAsync(schoolId);
+
+        public Task<StudentDetailDto?> GetStudentByIdAsync(Guid id)=> _studentDAO.GetStudentByIdAsync(id);
     }
 }

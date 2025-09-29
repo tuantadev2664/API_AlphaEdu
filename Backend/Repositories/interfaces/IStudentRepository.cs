@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Repositories.Interfaces
     public interface IStudentRepository : IRepository<User>
     {
         Task<List<User>> GetAllStudentsAsync();
-        Task<User?> GetStudentByIdAsync(Guid id);
+        Task<StudentDetailDto?> GetStudentByIdAsync(Guid id);
         Task<List<User>> SearchStudentsByNameAsync(string keyword);
         Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId);
         Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId);
