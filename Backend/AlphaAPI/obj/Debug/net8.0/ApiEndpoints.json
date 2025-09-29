@@ -217,6 +217,27 @@
   },
   {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "GetClassRanking",
+    "RelativePath": "api/Score/class/{classId}/term/{termId}/ranking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "SaveAndAnalyze",
     "RelativePath": "api/Score/save-and-analyze",
     "HttpMethod": "POST",

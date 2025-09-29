@@ -550,6 +550,38 @@
         }
       }
     },
+    "/api/Score/class/{classId}/term/{termId}/ranking": {
+      "get": {
+        "tags": [
+          "Score"
+        ],
+        "parameters": [
+          {
+            "name": "classId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Student": {
       "get": {
         "tags": [
