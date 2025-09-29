@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Repositories.Interfaces;
 using Services.interfaces;
@@ -21,8 +22,7 @@ namespace Services.services
         public Task<List<User>> GetAllStudentsAsync()
             => _studentRepository.GetAllStudentsAsync();
 
-        public Task<User?> GetStudentByIdAsync(Guid id)
-            => _studentRepository.GetStudentByIdAsync(id);
+        public Task<StudentDetailDto?> GetStudentByIdAsync(Guid id)=>_studentRepository.GetStudentByIdAsync(id);
 
         public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
             => _studentRepository.GetStudentsByClassAsync(classId, academicYearId);

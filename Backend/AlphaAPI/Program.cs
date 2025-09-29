@@ -55,6 +55,12 @@ namespace AlphaAPI
             builder.Services.AddScoped<ITeacherAssignmentRepository, TeacherAssignmentRepository>();
             builder.Services.AddScoped<ITeacherAssignmentService, TeacherAssignmentService>();
 
+            // Grade components & Assessments
+            builder.Services.AddScoped<IGradeComponentRepository, GradeComponentRepository>();
+            builder.Services.AddScoped<IGradeComponentService, GradeComponentService>();
+            builder.Services.AddScoped<IAssessmentRepository, AssessmentRepository>();
+            builder.Services.AddScoped<IAssessmentServices, AssessmentServices>();
+
             // PostgreSQL connection
             var connectionString = configuration.GetConnectionString("MyDB");
             builder.Services.AddDbContext<SchoolDbContext>(options =>
