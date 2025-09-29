@@ -1,5 +1,105 @@
 [
   {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "GetAll",
+    "RelativePath": "api/Class",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "Create",
+    "RelativePath": "api/Class",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cls",
+        "Type": "BusinessObjects.Models.Class",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "GetClassDetails",
+    "RelativePath": "api/Class/{classId}/year/{academicYearId}/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "GetById",
+    "RelativePath": "api/Class/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "Update",
+    "RelativePath": "api/Class/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "cls",
+        "Type": "BusinessObjects.Models.Class",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
+    "Method": "Delete",
+    "RelativePath": "api/Class/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "Create",
     "RelativePath": "api/Score",
@@ -46,7 +146,7 @@
       },
       {
         "Name": "dto",
-        "Type": "DataAccessObjects.ScoreUpdateDto",
+        "Type": "DataAccessObjects.Dto.ScoreUpdateDto",
         "IsRequired": true
       }
     ],

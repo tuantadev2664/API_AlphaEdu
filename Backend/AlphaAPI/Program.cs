@@ -31,6 +31,9 @@ namespace AlphaAPI
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
+            builder.Services.AddScoped<IClassRepository, ClassRepository>();
+            builder.Services.AddScoped<IClassService, ClassService>();
+
             builder.Services.AddScoped<IScoreRepository, ScoreRepository>();
             builder.Services.AddScoped<IScoreServices, ScoreServices>();
 

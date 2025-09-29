@@ -1,5 +1,5 @@
 ﻿using BusinessObjects.Models;
-using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
 using System;
