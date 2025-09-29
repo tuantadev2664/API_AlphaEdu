@@ -98,7 +98,23 @@ namespace AlphaAPI
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowReactApp",
-                    policy => policy.WithOrigins("http://localhost:3000", "https://alpha-edu-three.vercel.app")
+                    policy => policy.SetIsOriginAllowed(origin =>
+                                        {
+                                            // Prod domain
+                                            if (origin == "https://alphaedu.id.vn" || origin == "https://api.alphaedu.id.vn")
+                                                return true;
+
+                                            // Cho phép tất cả preview deploy trên Vercel
+                                            // (VD: https://alpha-edu-git-...vercel.app)
+                                            if (origin.EndsWith(".vercel.app", StringComparison.OrdinalIgnoreCase))
+                                                return true;
+
+                                            // Local dev
+                                            if (origin == "http://localhost:3000" || origin == "http://localhost:5173")
+                                                return true;
+
+                                            return false;
+                                        })
                                     .AllowAnyHeader()
                                     .AllowAnyMethod());
             });
