@@ -3,6 +3,7 @@
 
 using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Repositories.repositories;
 
@@ -32,4 +33,6 @@ public class ScoreRepository : Repository<Score>, IScoreRepository
 
     public Task<Dictionary<string, decimal?>> GetTranscriptByStudentAsync(Guid studentId, Guid termId) =>
         _scoreDAO.GetTranscriptByStudentAsync(studentId, termId);
+
+    public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId)=> _scoreDAO.GetStudentScoresByClassAndSubjectAsync(classId, subjectId, termId);   
 }

@@ -170,6 +170,32 @@
   },
   {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "GetScoresByClassAndSubject",
+    "RelativePath": "api/Score/class/{classId}/subject/{subjectId}/term/{termId}/scores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "subjectId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "GetByClassAndTerm",
     "RelativePath": "api/Score/class/{classId}/term/{termId}",
     "HttpMethod": "GET",

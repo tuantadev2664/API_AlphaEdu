@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
 using System;
@@ -165,6 +166,16 @@ namespace AlphaAPI.Controllers
                 Analysis = analysis // có thể null
             });
         }
+
+
+        [HttpGet("class/{classId:guid}/subject/{subjectId:guid}/term/{termId:guid}/scores")]
+        [Authorize(Roles = "teacher,admin")]
+        public async Task<IActionResult> GetScoresByClassAndSubject(Guid classId, Guid subjectId, Guid termId)
+        {
+            var result = await _scoreService.GetStudentScoresByClassAndSubjectAsync(classId, subjectId, termId);
+            return Ok(result);
+        }
+
 
     }
 }
