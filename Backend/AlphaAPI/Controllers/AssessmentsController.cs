@@ -1,10 +1,11 @@
-using BusinessObjects.Models;
+﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using DataAccessObjects.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Services.interfaces;
 using Microsoft.EntityFrameworkCore;
-using DataAccessObjects;
+using Services.interfaces;
+using System.Security.Claims;
 
 namespace AlphaAPI.Controllers
 {
@@ -53,84 +54,107 @@ namespace AlphaAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize] 
         public async Task<IActionResult> Create([FromBody] CreateAssessmentRequest request)
         {
-            // 1) Create GradeComponent
-            var gradeComponent = new GradeComponent
+            try
             {
-                Id = Guid.NewGuid(),
-                ClassId = request.ClassId,
-                SubjectId = request.SubjectId,
-                TermId = request.TermId,
-                Name = request.GradeComponent.Name,
-                Kind = request.GradeComponent.Kind,
-                Weight = request.GradeComponent.Weight,
-                MaxScore = request.GradeComponent.MaxScore,
-                Position = request.GradeComponent.Position
-            };
-
-            // prevent duplicate name in scope
-            if (await _gradeComponentService.ExistsByNameAsync(gradeComponent.ClassId, gradeComponent.SubjectId, gradeComponent.TermId, gradeComponent.Name))
-            {
-                return Conflict(new { success = false, message = "Grade component name already exists" });
-            }
-
-            await _gradeComponentService.AddAsync(gradeComponent);
-
-            // 2) Create Assessment under that GradeComponent
-            var dueDate = string.IsNullOrWhiteSpace(request.Assessment.DueDate)
-                ? (DateOnly?)null
-                : DateOnly.Parse(request.Assessment.DueDate);
-
-            var assessment = new Assessment
-            {
-                Id = Guid.NewGuid(),
-                GradeComponentId = gradeComponent.Id,
-                Title = request.Assessment.Title,
-                DueDate = dueDate,
-                Description = request.Assessment.Description
-            };
-
-            await _service.AddAsync(assessment);
-
-            // 3) Optionally initialize scores for all students in the class for the given academic year
-            if (request.InitializeScores)
-            {
-                var studentIds = await _db.ClassEnrollments
-                    .Where(ce => ce.ClassId == request.ClassId && ce.AcademicYearId == request.AcademicYearId)
-                    .Select(ce => ce.StudentId)
-                    .ToListAsync();
-
-                foreach (var sid in studentIds)
+                // 1) Create GradeComponent
+                var gradeComponent = new GradeComponent
                 {
-                    var score = new Score
+                    Id = Guid.NewGuid(),
+                    ClassId = request.ClassId,
+                    SubjectId = request.SubjectId,
+                    TermId = request.TermId,
+                    Name = request.GradeComponent.Name,
+                    Kind = request.GradeComponent.Kind,
+                    Weight = request.GradeComponent.Weight,
+                    MaxScore = request.GradeComponent.MaxScore,
+                    Position = request.GradeComponent.Position
+                };
+
+                // prevent duplicate name
+                if (await _gradeComponentService.ExistsByNameAsync(
+                    gradeComponent.ClassId, gradeComponent.SubjectId, gradeComponent.TermId, gradeComponent.Name))
+                {
+                    return Conflict(new { success = false, message = "Grade component name already exists" });
+                }
+
+                await _gradeComponentService.AddAsync(gradeComponent);
+
+                // 2) Create Assessment
+                var dueDate = string.IsNullOrWhiteSpace(request.Assessment.DueDate)
+                    ? (DateOnly?)null
+                    : DateOnly.Parse(request.Assessment.DueDate);
+
+                var assessment = new Assessment
+                {
+                    Id = Guid.NewGuid(),
+                    GradeComponentId = gradeComponent.Id,
+                    Title = request.Assessment.Title,
+                    DueDate = dueDate,
+                    Description = request.Assessment.Description
+                };
+
+                await _service.AddAsync(assessment);
+
+                if (request.InitializeScores)
+                {
+                    var studentIds = await _db.ClassEnrollments
+                        .Where(ce => ce.ClassId == request.ClassId && ce.AcademicYearId == request.AcademicYearId)
+                        .Select(ce => ce.StudentId)
+                        .ToListAsync();
+
+                    // 🔑 lấy userId từ JWT claim
+                    var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                    if (string.IsNullOrEmpty(userIdClaim))
                     {
-                        Id = Guid.NewGuid(),
-                        AssessmentId = assessment.Id,
-                        StudentId = sid,
-                        Score1 = null,
-                        IsAbsent = false,
-                        Comment = null,
-                        CreatedBy = Guid.Empty,
-                        CreatedAt = DateTime.UtcNow,
-                        UpdatedAt = null
-                    };
+                        return Unauthorized(new { success = false, message = "Không tìm thấy userId trong token" });
+                    }
+                    var createdBy = Guid.Parse(userIdClaim);
 
-                    await _scoreServices.AddAsync(score);
+                    foreach (var sid in studentIds)
+                    {
+                        var score = new Score
+                        {
+                            Id = Guid.NewGuid(),
+                            AssessmentId = assessment.Id,
+                            StudentId = sid,
+                            Score1 = null,
+                            IsAbsent = false,
+                            Comment = null,
+                            CreatedBy = createdBy, 
+                            CreatedAt = DateTime.UtcNow,
+                            UpdatedAt = null
+                        };
+
+                        await _scoreServices.AddAsync(score);
+                    }
                 }
-            }
 
-            return Ok(new
-            {
-                success = true,
-                message = "Created assessment and grade component",
-                data = new
+                return Ok(new
                 {
-                    gradeComponentId = gradeComponent.Id,
-                    assessmentId = assessment.Id
-                }
-            });
+                    success = true,
+                    message = "Created assessment and grade component",
+                    data = new
+                    {
+                        gradeComponentId = gradeComponent.Id,
+                        assessmentId = assessment.Id
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message,
+                    inner = ex.InnerException?.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] AssessmentUpdateDto dto)
