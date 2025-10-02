@@ -1,7 +1,10 @@
-using BusinessObjects.Models;
-using DataAccessObjects;
+﻿using BusinessObjects.Models;
 using Repositories.interfaces;
-using Services.interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Services.services
 {
@@ -22,5 +25,3 @@ namespace Services.services
             => _repository.GetByClassSubjectTermAsync(classId, subjectId, termId);
     }
 }
-
-

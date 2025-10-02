@@ -100,6 +100,138 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "AddNote",
+    "RelativePath": "api/BehaviorNote",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "note",
+        "Type": "BusinessObjects.Models.BehaviorNote",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "UpdateNote",
+    "RelativePath": "api/BehaviorNote/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedNote",
+        "Type": "BusinessObjects.Models.BehaviorNote",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "DeleteNote",
+    "RelativePath": "api/BehaviorNote/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "GetNotesByClass",
+    "RelativePath": "api/BehaviorNote/class/{classId}/{termId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "GetAllNotesByStudent",
+    "RelativePath": "api/BehaviorNote/student/{studentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "GetNotesByStudent",
+    "RelativePath": "api/BehaviorNote/student/{studentId}/{termId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "GetNotesByTeacher",
+    "RelativePath": "api/BehaviorNote/teacher/{teacherId}/{termId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AlphaAPI.Controllers.AlphaAPI.Controllers.ClassController",
     "Method": "GetAll",
     "RelativePath": "api/Class",
@@ -423,6 +555,22 @@
         "Type": "System.Guid",
         "IsRequired": true
       },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "GetChildrenFullInfo",
+    "RelativePath": "api/Score/parent/children/full-info/{termId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "termId",
         "Type": "System.Guid",

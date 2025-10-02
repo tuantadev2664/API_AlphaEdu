@@ -1,6 +1,5 @@
 ﻿
-﻿using BusinessObjects.Models;
-using DataAccessObjects;
+using BusinessObjects.Models;
 using DataAccessObjects.Dto;
 using System;
 using System.Collections.Generic;
@@ -19,5 +18,6 @@ namespace Repositories.interfaces
         Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId);
 
         Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId);
+        Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId);
     }
 }

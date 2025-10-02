@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repositories.interfaces
 {
-    public interface IBehaviorNoteRepository
+    public interface IBehaviorNoteRepository : IRepository<BehaviorNote>
     {
         Task<BehaviorNote> AddNoteAsync(BehaviorNote note);
 
@@ -25,5 +25,8 @@ namespace Repositories.interfaces
 
         // READ: Lấy tất cả ghi chú của 1 học sinh (mọi kỳ)
         Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId);
-    }
+
+        Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId);
+        
+        }
 }

@@ -9,17 +9,26 @@ using System.Threading.Tasks;
 
 namespace Repositories.repositories
 {
-    public class BehaviorNoteRepository : IBehaviorNoteRepository
+    public class BehaviorNoteRepository : Repository<BehaviorNote>, IBehaviorNoteRepository
     {
-        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=> BehaviorNoteDAO.AddNoteAsync(note);
+        private readonly BehaviorNoteDAO _dao;
 
-        public Task<bool> DeleteNoteAsync(Guid id)=>BehaviorNoteDAO.DeleteNoteAsync(id);
+        public BehaviorNoteRepository(SchoolDbContext context) : base(new BehaviorNoteDAO(context))
+        {
+            _dao = new BehaviorNoteDAO(context);
+        }
 
-        public Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)=>BehaviorNoteDAO.GetAllNotesByStudentAsync(studentId);
+        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=> _dao.AddNoteAsync(note);
 
-        public Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)=>BehaviorNoteDAO.GetNotesByClassAsync(classId, termId);
-        public Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)=> BehaviorNoteDAO.GetNotesByStudentAsync(@studentId, termId);
+        public Task<bool> DeleteNoteAsync(Guid id)=> _dao.DeleteNoteAsync(id);
 
-        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)=> BehaviorNoteDAO.UpdateNoteAsync(updatedNote);
+        public Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)=> _dao.GetAllNotesByStudentAsync(studentId);
+
+        public Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)=> _dao.GetNotesByClassAsync(classId, termId);
+        public Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)=> _dao.GetNotesByStudentAsync(@studentId, termId);
+
+        public Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId)=> _dao.GetNotesByTeacherAsync(@teacherId, termId);
+
+        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)=> _dao.UpdateNoteAsync(updatedNote);
     }
 }
