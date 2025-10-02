@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.interfaces
 {
-    public interface IBehaviorNoteServices
+    public interface IBehaviorNoteServices : IService<BehaviorNote>
     {
         Task<BehaviorNote> AddNoteAsync(BehaviorNote note);
 
@@ -25,5 +25,7 @@ namespace Services.interfaces
 
         // READ: Lấy tất cả ghi chú của 1 học sinh (mọi kỳ)
         Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId);
+
+        Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId);
     }
 }

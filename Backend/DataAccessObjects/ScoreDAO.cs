@@ -271,6 +271,58 @@ namespace DataAccessObjects
         }
 
 
+        public async Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
+        {
+            var children = await _context.ParentStudents
+                .Where(ps => ps.ParentId == parentId)
+                .Include(ps => ps.Student)
+                .Select(ps => ps.Student)
+                .ToListAsync();
+
+            var result = new List<object>();
+
+            foreach (var child in children)
+            {
+                var scores = await GetScoresByStudentAsync(child.Id);
+                var transcript = await GetTranscriptByStudentAsync(child.Id, termId); // ✅ sửa ở đây
+
+                var notes = await _context.BehaviorNotes
+                    .Where(b => b.StudentId == child.Id && b.TermId == termId)
+                    .ToListAsync();
+
+                // Lấy thông báo dành cho lớp mà học sinh đang học
+                var classIds = await _context.ClassEnrollments
+            .Where(e => e.StudentId == child.Id)
+            .Select(e => e.ClassId)
+            .Distinct()
+            .ToListAsync();
+
+        var announcements = await _context.Announcements
+            .Where(a => classIds.Contains(a.ClassId ?? Guid.Empty))
+            .OrderByDescending(a => a.CreatedAt)
+            .Select(a => new {
+                a.Id,
+                a.Title,
+                a.Content,
+                a.IsUrgent,
+                a.CreatedAt,
+                a.ExpiresAt,
+                a.SenderId,
+                a.ClassId,
+                a.SubjectId
+            }).ToListAsync();
+                result.Add(new
+                {
+                    StudentId = child.Id,
+                    StudentName = child.FullName,
+                    Scores = scores,
+                    Transcript = transcript,
+                    BehaviorNotes = notes
+                });
+            }
+
+            return result;
+        }
 
 
     }

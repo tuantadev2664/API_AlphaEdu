@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessObjects
 {
-    public class BehaviorNoteDAO
+    public class BehaviorNoteDAO : BaseDAO<BehaviorNote>
     {
+        public BehaviorNoteDAO(SchoolDbContext context) : base(context) { }
+    
        
 
         // CREATE
-        public static async Task<BehaviorNote> AddNoteAsync(BehaviorNote note)
+        public  async Task<BehaviorNote> AddNoteAsync(BehaviorNote note)
         {
 
             using var _context = new SchoolDbContext();
@@ -19,7 +21,7 @@ namespace DataAccessObjects
         }
 
         // READ: Ghi chú theo học sinh + học kỳ
-        public static async Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)
+        public  async Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)
         {
 
             using var _context = new SchoolDbContext();
@@ -31,7 +33,7 @@ namespace DataAccessObjects
         }
 
         // READ: Ghi chú theo lớp + học kỳ (GV chủ nhiệm dùng)
-        public static async Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)
+        public  async Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)
         {
 
             using var _context = new SchoolDbContext();
@@ -44,7 +46,7 @@ namespace DataAccessObjects
         }
 
         // UPDATE
-        public static async Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)
+        public  async Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)
         {
 
             using var _context = new SchoolDbContext();
@@ -53,16 +55,14 @@ namespace DataAccessObjects
 
             note.Note = updatedNote.Note;
             note.Level = updatedNote.Level;
-            note.ClassId = updatedNote.ClassId; // nếu cho phép đổi lớp
-            note.TermId = updatedNote.TermId;   // nếu cho phép đổi học kỳ
-            note.CreatedAt = DateTime.UtcNow;   // nên thêm trường này trong model
+            note.ClassId = updatedNote.ClassId;
+            note.TermId = updatedNote.TermId;   
+            note.CreatedAt = DateTime.UtcNow;   
 
             await _context.SaveChangesAsync();
             return true;
         }
-
-        // DELETE
-        public static async Task<bool> DeleteNoteAsync(Guid id)
+        public  async Task<bool> DeleteNoteAsync(Guid id)
         {
 
             using var _context = new SchoolDbContext();
@@ -74,8 +74,7 @@ namespace DataAccessObjects
             return true;
         }
 
-        // READ: Lấy tất cả ghi chú của 1 học sinh (mọi kỳ)
-        public static async Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)
+        public async Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)
         {
 
             using var _context = new SchoolDbContext();
@@ -86,5 +85,16 @@ namespace DataAccessObjects
                 .OrderByDescending(n => n.CreatedAt)
                 .ToListAsync();
         }
+        public async Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId)
+        {
+            using var _context = new SchoolDbContext();
+            return await _context.BehaviorNotes
+                .Where(n => n.CreatedBy == teacherId && n.TermId == termId)
+                .Include(n => n.Student)
+                .Include(n => n.Class)
+                .OrderByDescending(n => n.CreatedAt)
+                .ToListAsync();
+        }
+
     }
 }

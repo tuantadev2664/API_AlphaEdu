@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 
 namespace Services.services
 {
-    public class BehaviorNoteServices : IBehaviorNoteServices
+    public class BehaviorNoteServices : Service<BehaviorNote>, IBehaviorNoteServices
     {
         private readonly IBehaviorNoteRepository repo;
 
-        public BehaviorNoteServices(IBehaviorNoteRepository repository) { repo = repository; }
+        public BehaviorNoteServices(SchoolDbContext context, IBehaviorNoteRepository repository)
+            : base(context)
+        {
+            repo = repository;
+        }
         public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=>repo.AddNoteAsync(note);
 
         public Task<bool> DeleteNoteAsync(Guid id)=>repo.DeleteNoteAsync(id);
@@ -22,7 +26,9 @@ namespace Services.services
 
         public Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)=>repo.GetNotesByClassAsync(classId, termId);
 
-        public Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)=> repo.GetNotesByClassAsync(termId, studentId);
+        public Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)=> repo.GetNotesByStudentAsync(studentId, termId);
+
+        public Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId)=> repo.GetNotesByTeacherAsync(teacherId, termId);
 
         public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)=>repo.UpdateNoteAsync(updatedNote);
     }

@@ -1,6 +1,5 @@
 ﻿
-﻿using BusinessObjects.Models;
-using DataAccessObjects;
+using BusinessObjects.Models;
 using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Services.interfaces;
@@ -47,5 +46,7 @@ namespace Services.services
         public Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId) => _scoreRepository.GetStudentScoresByClassAndSubjectAsync(classId, subjectId,termId);
 
         public Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)=>_scoreRepository.GetClassRankingAsync(classId,termId);
+
+        public Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)=> _scoreRepository.GetChildrenFullInfoAsync(parentId, termId);
     }
 }

@@ -183,5 +183,15 @@ namespace AlphaAPI.Controllers
             var ranking = await _scoreService.GetClassRankingAsync(classId, termId);
             return Ok(ranking);
         }
+
+        [HttpGet("parent/children/full-info/{termId}")]
+        [Authorize(Roles = "parent")]
+        public async Task<IActionResult> GetChildrenFullInfo(Guid termId)
+        {
+            var parentId = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+            var childrenInfo = await _scoreService.GetChildrenFullInfoAsync(parentId, termId);
+            return Ok(childrenInfo);
+        }
+
     }
 }
