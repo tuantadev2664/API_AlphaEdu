@@ -271,7 +271,60 @@ namespace DataAccessObjects
         }
 
 
-        public async Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
+        //public async Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
+        //{
+        //    var children = await _context.ParentStudents
+        //        .Where(ps => ps.ParentId == parentId)
+        //        .Include(ps => ps.Student)
+        //        .Select(ps => ps.Student)
+        //        .ToListAsync();
+
+        //    var result = new List<object>();
+
+        //    foreach (var child in children)
+        //    {
+        //        var scores = await GetScoresByStudentAsync(child.Id);
+        //        var transcript = await GetTranscriptByStudentAsync(child.Id, termId); 
+
+        //        var notes = await _context.BehaviorNotes
+        //            .Where(b => b.StudentId == child.Id && b.TermId == termId)
+        //            .ToListAsync();
+
+        //        // Lấy thông báo dành cho lớp mà học sinh đang học
+        //        var classIds = await _context.ClassEnrollments
+        //    .Where(e => e.StudentId == child.Id)
+        //    .Select(e => e.ClassId)
+        //    .Distinct()
+        //    .ToListAsync();
+
+        //var announcements = await _context.Announcements
+        //    .Where(a => classIds.Contains(a.ClassId ?? Guid.Empty))
+        //    .OrderByDescending(a => a.CreatedAt)
+        //    .Select(a => new {
+        //        a.Id,
+        //        a.Title,
+        //        a.Content,
+        //        a.IsUrgent,
+        //        a.CreatedAt,
+        //        a.ExpiresAt,
+        //        a.SenderId,
+        //        a.ClassId,
+        //        a.SubjectId
+        //    }).ToListAsync();
+        //        result.Add(new
+        //        {
+        //            StudentId = child.Id,
+        //            StudentName = child.FullName,
+        //            Scores = scores,
+        //            Transcript = transcript,
+        //            BehaviorNotes = notes
+        //        });
+        //    }
+
+        //    return result;
+        //}
+
+        public async Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
         {
             var children = await _context.ParentStudents
                 .Where(ps => ps.ParentId == parentId)
@@ -279,50 +332,75 @@ namespace DataAccessObjects
                 .Select(ps => ps.Student)
                 .ToListAsync();
 
-            var result = new List<object>();
+            var result = new List<ChildFullInfoDto>();
 
             foreach (var child in children)
             {
-                var scores = await GetScoresByStudentAsync(child.Id);
-                var transcript = await GetTranscriptByStudentAsync(child.Id, termId); // ✅ sửa ở đây
+                var scores = await GetScoresByStudentAsync(child.Id); // List<ScoreDto>
+
+                // FIX transcript
+                var transcriptDict = await GetTranscriptByStudentAsync(child.Id, termId);
+                var transcript = new TranscriptDto
+                {
+                    TermId = termId,
+                    TermName = (await _context.Terms.FindAsync(termId))?.Code ?? "",
+                    Subjects = transcriptDict.Select(kv => new SubjectTranscriptDto
+                    {
+                        SubjectName = kv.Key,
+                        AverageScore = kv.Value ?? 0
+                    }).ToList()
+                };
 
                 var notes = await _context.BehaviorNotes
                     .Where(b => b.StudentId == child.Id && b.TermId == termId)
+                    .Select(b => new BehaviorNoteDto
+                    {
+                        Id = b.Id,
+                        Note = b.Note ?? "",
+                        Level = b.Level,
+                        CreatedAt = b.CreatedAt,
+                        TeacherId = b.CreatedBy,
+                        TeacherName = b.CreatedByNavigation.FullName
+                    })
                     .ToListAsync();
 
-                // Lấy thông báo dành cho lớp mà học sinh đang học
                 var classIds = await _context.ClassEnrollments
-            .Where(e => e.StudentId == child.Id)
-            .Select(e => e.ClassId)
-            .Distinct()
-            .ToListAsync();
+                    .Where(e => e.StudentId == child.Id)
+                    .Select(e => e.ClassId)
+                    .Distinct()
+                    .ToListAsync();
 
-        var announcements = await _context.Announcements
-            .Where(a => classIds.Contains(a.ClassId ?? Guid.Empty))
-            .OrderByDescending(a => a.CreatedAt)
-            .Select(a => new {
-                a.Id,
-                a.Title,
-                a.Content,
-                a.IsUrgent,
-                a.CreatedAt,
-                a.ExpiresAt,
-                a.SenderId,
-                a.ClassId,
-                a.SubjectId
-            }).ToListAsync();
-                result.Add(new
+                var announcements = await _context.Announcements
+                    .Where(a => classIds.Contains(a.ClassId ?? Guid.Empty))
+                    .OrderByDescending(a => a.CreatedAt)
+                    .Select(a => new AnnouncementDto
+                    {
+                        Id = a.Id,
+                        Title = a.Title,
+                        Content = a.Content,
+                        IsUrgent = a.IsUrgent ?? false,  
+                        CreatedAt = a.CreatedAt,
+                        ExpiresAt = a.ExpiresAt,
+                        SenderId = a.SenderId,
+                        ClassId = a.ClassId,
+                        SubjectId = a.SubjectId
+                    })
+                    .ToListAsync();
+
+                result.Add(new ChildFullInfoDto
                 {
                     StudentId = child.Id,
                     StudentName = child.FullName,
                     Scores = scores,
                     Transcript = transcript,
-                    BehaviorNotes = notes
+                    BehaviorNotes = notes,
+                    Announcements = announcements
                 });
             }
 
             return result;
         }
+
 
 
     }

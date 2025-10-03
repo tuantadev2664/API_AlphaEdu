@@ -13,5 +13,5 @@ public interface IScoreServices : IService<Score>
     Task<Dictionary<string, decimal?>> GetTranscriptByStudentAsync(Guid studentId, Guid termId);
     Task<List<StudentScoresDto>> GetStudentScoresByClassAndSubjectAsync(Guid classId, Guid subjectId, Guid termId);
     Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId);
-    Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId);
+    Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId);
 }
