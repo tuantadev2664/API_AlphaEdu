@@ -11,7 +11,8 @@ namespace DataAccessObjects
 {
     public class ScoreDAO : BaseDAO<Score>
     {
-        public ScoreDAO(SchoolDbContext context) : base(context) { }
+        private readonly SubjectDAO _subjectDAO;
+        public ScoreDAO(SchoolDbContext context) : base(context) { _subjectDAO = new SubjectDAO(context); }
 
         // CREATE (có check trùng)
         public override async Task AddAsync(Score score)
@@ -324,6 +325,84 @@ namespace DataAccessObjects
         //    return result;
         //}
 
+        //public async Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
+        //{
+        //    var children = await _context.ParentStudents
+        //        .Where(ps => ps.ParentId == parentId)
+        //        .Include(ps => ps.Student)
+        //        .Select(ps => ps.Student)
+        //        .ToListAsync();
+
+        //    var result = new List<ChildFullInfoDto>();
+
+        //    foreach (var child in children)
+        //    {
+        //        var scores = await GetScoresByStudentAsync(child.Id); // List<ScoreDto>
+
+        //        // FIX transcript
+        //        var transcriptDict = await GetTranscriptByStudentAsync(child.Id, termId);
+        //        var transcript = new TranscriptDto
+        //        {
+        //            TermId = termId,
+        //            TermName = (await _context.Terms.FindAsync(termId))?.Code ?? "",
+        //            Subjects = transcriptDict.Select(kv => new SubjectTranscriptDto
+        //            {
+        //                SubjectName = kv.Key,
+        //                AverageScore = kv.Value ?? 0
+        //            }).ToList()
+        //        };
+
+        //        var notes = await _context.BehaviorNotes
+        //            .Where(b => b.StudentId == child.Id && b.TermId == termId)
+        //            .Select(b => new BehaviorNoteDto
+        //            {
+        //                Id = b.Id,
+        //                Note = b.Note ?? "",
+        //                Level = b.Level,
+        //                CreatedAt = b.CreatedAt,
+        //                TeacherId = b.CreatedBy,
+        //                TeacherName = b.CreatedByNavigation.FullName
+        //            })
+        //            .ToListAsync();
+
+        //        var classIds = await _context.ClassEnrollments
+        //            .Where(e => e.StudentId == child.Id)
+        //            .Select(e => e.ClassId)
+        //            .Distinct()
+        //            .ToListAsync();
+
+        //        var announcements = await _context.Announcements
+        //            .Where(a => classIds.Contains(a.ClassId ?? Guid.Empty))
+        //            .OrderByDescending(a => a.CreatedAt)
+        //            .Select(a => new AnnouncementDto
+        //            {
+        //                Id = a.Id,
+        //                Title = a.Title,
+        //                Content = a.Content,
+        //                IsUrgent = a.IsUrgent ?? false,  
+        //                CreatedAt = a.CreatedAt,
+        //                ExpiresAt = a.ExpiresAt,
+        //                SenderId = a.SenderId,
+        //                ClassId = a.ClassId,
+        //                SubjectId = a.SubjectId
+        //            })
+        //            .ToListAsync();
+
+        //        result.Add(new ChildFullInfoDto
+        //        {
+        //            StudentId = child.Id,
+        //            StudentName = child.FullName,
+        //            Scores = scores,
+        //            Transcript = transcript,
+        //            BehaviorNotes = notes,
+        //            Announcements = announcements
+        //        });
+        //    }
+
+        //    return result;
+        //}
+
+
         public async Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)
         {
             var children = await _context.ParentStudents
@@ -378,7 +457,7 @@ namespace DataAccessObjects
                         Id = a.Id,
                         Title = a.Title,
                         Content = a.Content,
-                        IsUrgent = a.IsUrgent ?? false,  
+                        IsUrgent = a.IsUrgent ?? false,
                         CreatedAt = a.CreatedAt,
                         ExpiresAt = a.ExpiresAt,
                         SenderId = a.SenderId,
@@ -387,6 +466,9 @@ namespace DataAccessObjects
                     })
                     .ToListAsync();
 
+                // ✅ gọi hàm lấy danh sách môn học + điểm thành phần
+                var subjects = await _subjectDAO.GetSubjectsByStudentAsync(child.Id);
+
                 result.Add(new ChildFullInfoDto
                 {
                     StudentId = child.Id,
@@ -394,7 +476,8 @@ namespace DataAccessObjects
                     Scores = scores,
                     Transcript = transcript,
                     BehaviorNotes = notes,
-                    Announcements = announcements
+                    Announcements = announcements,
+                    Subjects = subjects
                 });
             }
 

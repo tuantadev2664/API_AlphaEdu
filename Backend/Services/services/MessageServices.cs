@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Services.interfaces;
 using System;
@@ -20,17 +21,15 @@ namespace Services.services
         }
 
         public Task<bool> DeleteMessageAsync(Guid messageId)=> _repository.DeleteMessageAsync(messageId);
+        public Task<List<MessageDto>> GetConversationAsync(Guid user1, Guid user2, int page = 1, int pageSize = 20)=>_repository.GetConversationAsync(user1, user2, page, pageSize);
 
-        public Task<List<Message>> GetLatestConversationsAsync(Guid userId)=> _repository.GetLatestConversationsAsync(userId);
+        public Task<List<ConversationDto>> GetConversationsListAsync(Guid userId)=> _repository.GetConversationsListAsync(userId);
 
-        public Task<List<Message>> GetUnreadMessagesAsync(Guid userId)=> _repository.GetUnreadMessagesAsync(userId);
+        public Task<List<MessageDto>> GetUnreadMessagesAsync(Guid userId)=>_repository.GetUnreadMessagesAsync(userId);
 
-        public Task MarkAsReadAsync(Guid messageId)=> _repository.MarkAsReadAsync(messageId);
+        public Task MarkAsReadAsync(Guid messageId)=>_repository.MarkAsReadAsync(messageId);
 
-        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=> _repository.MarkConversationAsReadAsync(senderId, receiverId);
-
-        public Task<Message> SendMessageAsync(Message msg)=> _repository.SendMessageAsync(msg);
-
-        public Task<List<Message>> GetConversationAsync(Guid user1, Guid user2, int page = 1, int pageSize = 20) => _repository.GetConversationAsync(user1, user2, page, pageSize);
+        public Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId)=>_repository.MarkConversationAsReadAsync(senderId, receiverId);
+        public Task<MessageDto> SendMessageAsync(Message msg)=>_repository.SendMessageAsync(msg);
     }
 }

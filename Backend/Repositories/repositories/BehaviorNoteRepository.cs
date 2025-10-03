@@ -20,6 +20,7 @@ namespace Repositories.repositories
 
         public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=> _dao.AddNoteAsync(note);
 
+        public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment) => _dao.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
         public Task<bool> DeleteNoteAsync(Guid id)=> _dao.DeleteNoteAsync(id);
 
         public Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)=> _dao.GetAllNotesByStudentAsync(studentId);

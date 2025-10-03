@@ -27,6 +27,16 @@ namespace Repositories.interfaces
         Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId);
 
         Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId);
-        
+
+        Task<BehaviorNote> AddNoteFromAnalysisAsync(
+            Guid studentId,
+            Guid classId,
+            Guid termId,
+            Guid teacherId,
+            string riskLevel,
+            string comment
+        );
+
+
         }
 }

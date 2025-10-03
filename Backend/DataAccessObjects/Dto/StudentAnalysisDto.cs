@@ -4,18 +4,20 @@ using DataAccessObjects.Dto;
 public class StudentAnalysisDto
 {
     public Guid StudentId { get; set; }
+    public Guid TermId { get; set; }    // thêm để gắn với học kỳ
     public string FullName { get; set; } = string.Empty;
 
-    // Điểm tổng quan
+    // Tổng quan
     public decimal Average { get; set; }
     public int BelowCount { get; set; }
-    public string RiskLevel { get; set; } = "Low";
+    public string RiskLevel { get; set; } = "low"; // low, medium, high
     public string Comment { get; set; } = string.Empty;
 
     // Chi tiết từng môn
-    public Dictionary<string, SubjectAnalysisDto> Subjects { get; set; } = new();
+    public List<SubjectAnalysisDto> Subjects { get; set; } = new();
 
-    // Tóm tắt về tiến độ học tập
+    // Tóm tắt báo cáo
     public string Summary { get; set; } = string.Empty;
 }
+
 

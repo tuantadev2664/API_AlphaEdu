@@ -20,6 +20,8 @@ namespace Services.services
         }
         public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=>repo.AddNoteAsync(note);
 
+        public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment) => repo.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
+
         public Task<bool> DeleteNoteAsync(Guid id)=>repo.DeleteNoteAsync(id);
 
         public Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)=>repo.GetAllNotesByStudentAsync(studentId);

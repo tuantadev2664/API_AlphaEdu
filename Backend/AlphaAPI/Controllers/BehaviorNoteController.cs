@@ -80,5 +80,24 @@ namespace AlphaAPI.Controllers
 
             return Ok("Note deleted successfully");
         }
+
+        // POST: api/BehaviorNote/confirm-ai
+        [HttpPost("confirm-ai")]
+        [Authorize(Roles = "teacher,admin")]
+        public async Task<IActionResult> ConfirmNoteFromAI([FromBody] BehaviorNote note)
+        {
+            if (note == null) return BadRequest("Note cannot be null");
+
+            // override CreatedBy từ token user
+            note.CreatedBy = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+
+            var result = await _service.AddNoteAsync(note);
+            return Ok(new
+            {
+                Message = "AI note confirmed and saved successfully",
+                Note = result
+            });
+        }
+
     }
 }

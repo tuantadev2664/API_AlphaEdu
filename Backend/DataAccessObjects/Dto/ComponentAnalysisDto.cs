@@ -19,8 +19,12 @@ namespace DataAccessObjects.Dto
         public int Count { get; set; }
         public int BelowThresholdCount { get; set; }
 
-        public string RiskLevel { get; set; } = "Low";
+        public string RiskLevel { get; set; } = "low";
         public string Comment { get; set; } = string.Empty;
+
+        // Optional: để hiển thị chi tiết
+        public List<decimal?> Scores { get; set; } = new();
     }
+
 
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,10 @@ namespace Repositories.interfaces
 {
     public interface IMessageRepository : IRepository<Message>
     {
-        Task<Message> SendMessageAsync(Message msg);
+        Task<MessageDto> SendMessageAsync(Message msg);
 
         // Lấy toàn bộ hội thoại giữa 2 người
-        Task<List<Message>> GetConversationAsync(
-              Guid user1, Guid user2,
-              int page = 1, int pageSize = 20);
+        Task<List<MessageDto>> GetConversationAsync(Guid user1, Guid user2, int page = 1, int pageSize = 20);
 
         // Đánh dấu 1 tin nhắn là đã đọc
         Task MarkAsReadAsync(Guid messageId);
@@ -22,10 +21,10 @@ namespace Repositories.interfaces
         // 📌 Bổ sung thực tế
 
         // Lấy danh sách hội thoại (chỉ hiển thị người chat gần đây, giống Messenger)
-        Task<List<Message>> GetLatestConversationsAsync(Guid userId);
+        Task<List<ConversationDto>> GetConversationsListAsync(Guid userId);
 
         // Lấy tất cả tin nhắn chưa đọc của 1 user
-        Task<List<Message>> GetUnreadMessagesAsync(Guid userId);
+        Task<List<MessageDto>> GetUnreadMessagesAsync(Guid userId);
 
         // Đánh dấu tất cả tin nhắn trong cuộc trò chuyện là đã đọc
         Task MarkConversationAsReadAsync(Guid senderId, Guid receiverId);

@@ -3,6 +3,7 @@ using DataAccessObjects.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
+using Services.services;
 using System;
 using System.Threading.Tasks;
 
@@ -14,11 +15,13 @@ namespace AlphaAPI.Controllers
     {
         private readonly IScoreServices _scoreService;
         private readonly IAnalyticsServices _analyticsService;
+        private readonly IBehaviorNoteServices _behaviorNoteService;
 
-        public ScoreController(IScoreServices scoreService, IAnalyticsServices analyticsService)
+        public ScoreController(IScoreServices scoreService, IAnalyticsServices analyticsService, IBehaviorNoteServices behaviorNoteService)
         {
             _scoreService = scoreService;
             _analyticsService = analyticsService;
+            _behaviorNoteService = behaviorNoteService;
         }
 
 
@@ -192,6 +195,61 @@ namespace AlphaAPI.Controllers
             var childrenInfo = await _scoreService.GetChildrenFullInfoAsync(parentId, termId);
             return Ok(childrenInfo);
         }
+
+        // POST: api/score/analyze-and-note
+        [HttpPost("analyze-and-note")]
+        [Authorize(Roles = "teacher,admin")]
+        public async Task<IActionResult> AnalyzeAndSaveNote([FromBody] Guid studentId, [FromQuery] Guid termId, [FromQuery] Guid classId)
+        {
+            var teacherId = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+
+            // 1. Phân tích điểm của học sinh
+            var analysis = await _analyticsService.AnalyzeStudentAsync(studentId, termId);
+            if (analysis == null)
+                return NotFound(new { Message = "Không tìm thấy dữ liệu để phân tích." });
+
+            // 2. Tạo BehaviorNote từ phân tích
+            var note = await _behaviorNoteService.AddNoteFromAnalysisAsync(
+                studentId,
+                classId,
+                termId,
+                teacherId,
+                analysis.RiskLevel,
+                analysis.Comment
+            );
+
+            return Ok(new
+            {
+                Message = "Phân tích & lưu ghi chú thành công.",
+                Analysis = analysis,
+                BehaviorNote = note
+            });
+        }
+
+        // GET: api/score/parent/child/{studentId}/term/{termId}/full-summary
+        [HttpGet("parent/child/{studentId:guid}/term/{termId:guid}/full-summary")]
+        [Authorize(Roles = "parent")]
+        public async Task<IActionResult> GetChildFullSummary(Guid studentId, Guid termId)
+        {
+            var parentId = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+
+            // TODO: check studentId có thuộc parent không
+
+            // 1. Lấy phân tích học sinh
+            var analysis = await _analyticsService.AnalyzeStudentAsync(studentId, termId);
+
+            // 2. Lấy BehaviorNotes
+            var notes = await _behaviorNoteService.GetNotesByStudentAsync(studentId, termId);
+
+            return Ok(new
+            {
+                StudentId = studentId,
+                TermId = termId,
+                Analysis = analysis,
+                BehaviorNotes = notes
+            });
+        }
+
 
     }
 }

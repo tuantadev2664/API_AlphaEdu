@@ -175,6 +175,22 @@
   },
   {
     "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
+    "Method": "ConfirmNoteFromAI",
+    "RelativePath": "api/BehaviorNote/confirm-ai",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "note",
+        "Type": "BusinessObjects.Models.BehaviorNote",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
     "Method": "GetAllNotesByStudent",
     "RelativePath": "api/BehaviorNote/student/{studentId}",
     "HttpMethod": "GET",
@@ -497,6 +513,32 @@
   },
   {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "AnalyzeAndSaveNote",
+    "RelativePath": "api/Score/analyze-and-note",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "GetScoresByClassAndSubject",
     "RelativePath": "api/Score/class/{classId}/subject/{subjectId}/term/{termId}/scores",
     "HttpMethod": "GET",
@@ -552,6 +594,27 @@
     "Parameters": [
       {
         "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.ScoreController",
+    "Method": "GetChildFullSummary",
+    "RelativePath": "api/Score/parent/child/{studentId}/term/{termId}/full-summary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
         "Type": "System.Guid",
         "IsRequired": true
       },
