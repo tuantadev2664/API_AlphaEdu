@@ -859,6 +859,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AlphaAPI.Controllers.SubjectController",
+    "Method": "GetSubjectsByStudent",
+    "RelativePath": "api/Subject/student/{studentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AlphaAPI.Controllers.TeacherAssignmentsController",
     "Method": "GetMyClasses",
     "RelativePath": "api/TeacherAssignments/my-classes",

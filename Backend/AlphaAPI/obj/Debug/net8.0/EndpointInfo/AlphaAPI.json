@@ -1361,6 +1361,29 @@
         }
       }
     },
+    "/api/Subject/student/{studentId}": {
+      "get": {
+        "tags": [
+          "Subject"
+        ],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TeacherAssignments/my-classes": {
       "get": {
         "tags": [

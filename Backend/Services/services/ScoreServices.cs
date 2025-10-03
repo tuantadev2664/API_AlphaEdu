@@ -47,6 +47,6 @@ namespace Services.services
 
         public Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)=>_scoreRepository.GetClassRankingAsync(classId,termId);
 
-        public Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)=> _scoreRepository.GetChildrenFullInfoAsync(parentId, termId);
+        public Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId) => _scoreRepository.GetChildrenFullInfoAsync(parentId, termId);
     }
 }

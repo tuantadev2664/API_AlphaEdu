@@ -38,5 +38,5 @@ public class ScoreRepository : Repository<Score>, IScoreRepository
 
     public Task<List<StudentRankingDto>> GetClassRankingAsync(Guid classId, Guid termId)=>_scoreDAO.GetClassRankingAsync(@classId, termId);
 
-    public Task<List<object>> GetChildrenFullInfoAsync(Guid parentId, Guid termId)=>_scoreDAO.GetChildrenFullInfoAsync(@parentId, termId);
+    public Task<List<ChildFullInfoDto>> GetChildrenFullInfoAsync(Guid parentId, Guid termId) => _scoreDAO.GetChildrenFullInfoAsync(@parentId, termId);
 }
