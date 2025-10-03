@@ -15,5 +15,6 @@ namespace DataAccessObjects.Dto
         public TranscriptDto Transcript { get; set; } = new();
         public List<BehaviorNoteDto> BehaviorNotes { get; set; } = new();
         public List<AnnouncementDto> Announcements { get; set; } = new();
+        public List<SubjectResultDto> Subjects { get; set; } = new();
     }
 }
