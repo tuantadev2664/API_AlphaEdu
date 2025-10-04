@@ -13,7 +13,8 @@ namespace DataAccessObjects.Dto
 
         public Guid? TeacherId { get; set; }
         public string? TeacherName { get; set; }
-
+        public Guid ClassId { get; set; }
+        public string ClassName { get; set; } = string.Empty;
         public List<GradeComponentDto> Components { get; set; } = new();
     }
 

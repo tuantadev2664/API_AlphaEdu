@@ -10,7 +10,11 @@ namespace DataAccessObjects.Dto
     {
         public Guid StudentId { get; set; }
         public string StudentName { get; set; } = string.Empty;
+        public Guid ClassId { get; set; }
+        public string ClassName { get; set; } = string.Empty;
 
+        public Guid? HomeroomTeacherId { get; set; }
+        public string HomeroomTeacherName { get; set; } = string.Empty;
         public List<ScoreDto> Scores { get; set; } = new();
         public TranscriptDto Transcript { get; set; } = new();
         public List<BehaviorNoteDto> BehaviorNotes { get; set; } = new();

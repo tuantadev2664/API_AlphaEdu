@@ -36,7 +36,8 @@ using System;
                     SubjectName = sdata.s.Name,
                     TeacherId = sdata.t.Id,
                     TeacherName = sdata.t.FullName,
-
+                    ClassId = sdata.c.Id,
+                    ClassName = sdata.c.Name,
                     Components = _context.GradeComponents
                         .Where(gc => gc.ClassId == sdata.c.Id && gc.SubjectId == sdata.s.Id)
                         .Select(gc => new GradeComponentDto
