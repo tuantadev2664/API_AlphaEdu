@@ -415,9 +415,27 @@ namespace DataAccessObjects
 
             foreach (var child in children)
             {
-                var scores = await GetScoresByStudentAsync(child.Id); // List<ScoreDto>
+                // ✅ Lấy thông tin lớp hiện tại của học sinh (bao gồm GVCN)
+                var classInfo = await _context.ClassEnrollments
+                    .Where(e => e.StudentId == child.Id)
+                    .Include(e => e.Class)
+                        .ThenInclude(c => c.HomeroomTeacher)
+                    .OrderByDescending(e => e.AcademicYearId) // lớp gần nhất
+                    .Select(e => new
+                    {
+                        e.ClassId,
+                        ClassName = e.Class.Name,
+                        TeacherId = e.Class.HomeroomTeacherId,
+                        TeacherName = e.Class.HomeroomTeacher != null
+                            ? e.Class.HomeroomTeacher.FullName
+                            : "(Chưa có giáo viên chủ nhiệm)"
+                    })
+                    .FirstOrDefaultAsync();
 
-                // FIX transcript
+                // ✅ Điểm số chi tiết
+                var scores = await GetScoresByStudentAsync(child.Id);
+
+                // ✅ Bảng điểm học kỳ
                 var transcriptDict = await GetTranscriptByStudentAsync(child.Id, termId);
                 var transcript = new TranscriptDto
                 {
@@ -430,6 +448,7 @@ namespace DataAccessObjects
                     }).ToList()
                 };
 
+                // ✅ Ghi chú hành vi
                 var notes = await _context.BehaviorNotes
                     .Where(b => b.StudentId == child.Id && b.TermId == termId)
                     .Select(b => new BehaviorNoteDto
@@ -443,6 +462,7 @@ namespace DataAccessObjects
                     })
                     .ToListAsync();
 
+                // ✅ Thông báo từ lớp học
                 var classIds = await _context.ClassEnrollments
                     .Where(e => e.StudentId == child.Id)
                     .Select(e => e.ClassId)
@@ -466,13 +486,18 @@ namespace DataAccessObjects
                     })
                     .ToListAsync();
 
-                // ✅ gọi hàm lấy danh sách môn học + điểm thành phần
+                // ✅ Danh sách môn học + điểm thành phần
                 var subjects = await _subjectDAO.GetSubjectsByStudentAsync(child.Id);
 
+                // ✅ Tổng hợp kết quả
                 result.Add(new ChildFullInfoDto
                 {
                     StudentId = child.Id,
                     StudentName = child.FullName,
+                    ClassId = classInfo?.ClassId ?? Guid.Empty,
+                    ClassName = classInfo?.ClassName ?? "(Chưa có lớp)",
+                    HomeroomTeacherId = classInfo?.TeacherId,
+                    HomeroomTeacherName = classInfo?.TeacherName ?? "(Chưa có giáo viên chủ nhiệm)",
                     Scores = scores,
                     Transcript = transcript,
                     BehaviorNotes = notes,
@@ -483,6 +508,8 @@ namespace DataAccessObjects
 
             return result;
         }
+
+
 
 
 
