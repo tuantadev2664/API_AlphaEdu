@@ -1,5 +1,152 @@
 [
   {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "AddAnnouncement",
+    "RelativePath": "api/Announcement",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ann",
+        "Type": "BusinessObjects.Models.Announcement",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "UpdateAnnouncement",
+    "RelativePath": "api/Announcement/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updated",
+        "Type": "BusinessObjects.Models.Announcement",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "DeleteAnnouncement",
+    "RelativePath": "api/Announcement/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetActiveAnnouncements",
+    "RelativePath": "api/Announcement/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetByClass",
+    "RelativePath": "api/Announcement/class/{classId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetByClassAndTerm",
+    "RelativePath": "api/Announcement/class/{classId}/term/{termId}/year/{academicYearId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetBySubject",
+    "RelativePath": "api/Announcement/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetByTeacher",
+    "RelativePath": "api/Announcement/teacher/{teacherId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AlphaAPI.Controllers.AnnouncementController",
+    "Method": "GetUrgentAnnouncements",
+    "RelativePath": "api/Announcement/urgent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AlphaAPI.Controllers.AssessmentsController",
     "Method": "GetByFilter",
     "RelativePath": "api/Assessments",

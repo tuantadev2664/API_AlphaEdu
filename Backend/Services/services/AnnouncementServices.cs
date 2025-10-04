@@ -1,5 +1,7 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects;
 using Repositories.interfaces;
+using Repositories.Interfaces;
 using Services.interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,24 +11,33 @@ using System.Threading.Tasks;
 
 namespace Services.services
 {
-    public class AnnouncementServices : IAnnouncementServices
+    public class AnnouncementServices : Service<Announcement>, IAnnouncementServices
     {
-        private readonly IAnnouncementRepository repo;
+        private readonly IAnnouncementRepository _analyticsRepository;
 
-        public AnnouncementServices(IAnnouncementRepository repository) { repo = repository; }
-        public Task<Announcement> CreateAnnouncementAsync(Announcement ann) => repo.CreateAnnouncementAsync(ann);
+        public AnnouncementServices(SchoolDbContext context, IAnnouncementRepository analyticsRepository)
+            : base(context)
+        {
+            _analyticsRepository = analyticsRepository;
+        }
 
-        public Task<bool> DeleteAnnouncementAsync(Guid id)=>repo.DeleteAnnouncementAsync(id);
 
-        public Task<List<Announcement>> GetActiveAnnouncementsAsync()=>repo.GetActiveAnnouncementsAsync();
+        public Task<Announcement> AddAnnouncementAsync(Announcement ann) => _analyticsRepository.AddAnnouncementAsync(ann);
 
-        public Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId)=>repo.GetAnnouncementsByClassAsync(classId);
+        public Task<bool> DeleteAnnouncementAsync(Guid id) => _analyticsRepository.DeleteAnnouncementAsync(id);
 
-        public Task<List<Announcement>> GetAnnouncementsBySenderAsync(Guid senderId)=>repo.GetAnnouncementsBySenderAsync(senderId);
-        public Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId)=>repo.GetAnnouncementsBySubjectAsync(subjectId);    
+        public Task<List<Announcement>> GetActiveAnnouncementsAsync() => _analyticsRepository.GetActiveAnnouncementsAsync();
 
-        public Task<List<Announcement>> GetUrgentAnnouncementsAsync()=>repo.GetUrgentAnnouncementsAsync();
+        public Task<List<Announcement>> GetAnnouncementsByClassAndTermAsync(Guid classId, Guid termId, Guid academicYearId) => _analyticsRepository.GetAnnouncementsByClassAndTermAsync(classId, termId, academicYearId);
 
-        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)=>repo.UpdateAnnouncementAsync(updated);
+        public Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId) => _analyticsRepository.GetAnnouncementsByClassAsync(classId);
+
+        public Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId) => _analyticsRepository.GetAnnouncementsBySubjectAsync(subjectId);
+
+        public Task<List<Announcement>> GetAnnouncementsByTeacherAsync(Guid teacherId) => _analyticsRepository.GetAnnouncementsByTeacherAsync(teacherId);
+
+        public Task<List<Announcement>> GetUrgentAnnouncementsAsync() => _analyticsRepository.GetUrgentAnnouncementsAsync();
+
+        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated) => _analyticsRepository.UpdateAnnouncementAsync(updated);
     }
 }
