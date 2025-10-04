@@ -608,7 +608,7 @@
   {
     "ContainingType": "AlphaAPI.Controllers.ScoreController",
     "Method": "GetChildFullSummary",
-    "RelativePath": "api/Score/parent/child/{studentId}/term/{termId}/full-summary",
+    "RelativePath": "api/Score/parent/child/{studentId}/term/{termId}/full-",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
