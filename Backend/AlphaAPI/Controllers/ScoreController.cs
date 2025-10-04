@@ -227,7 +227,7 @@ namespace AlphaAPI.Controllers
         }
 
         // GET: api/score/parent/child/{studentId}/term/{termId}/full-summary
-        [HttpGet("parent/child/{studentId:guid}/term/{termId:guid}/full-summary")]
+        [HttpGet("parent/child/{studentId:guid}/term/{termId:guid}/full-")]
         [Authorize(Roles = "parent")]
         public async Task<IActionResult> GetChildFullSummary(Guid studentId, Guid termId)
         {

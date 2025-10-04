@@ -5,6 +5,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\dataaccessobjects\\subjectdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\subjectdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\dataaccessobjects\\scoredao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\scoredao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\dataaccessobjects\\dto\\subjectresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\dto\\subjectresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\alphaapi\\controllers\\scorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\scorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,13 +54,77 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubjectDAO.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\SubjectDAO.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\SubjectDAO.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\SubjectDAO.cs",
+              "RelativeToolTip": "DataAccessObjects\\SubjectDAO.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAmwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T09:01:25.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubjectResultDto.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\Dto\\SubjectResultDto.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\Dto\\SubjectResultDto.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\Dto\\SubjectResultDto.cs",
+              "RelativeToolTip": "DataAccessObjects\\Dto\\SubjectResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T09:00:07.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "AlphaAPI\\Controllers\\StudentController.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "AlphaAPI\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T10:09:39.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScoreDAO.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\ScoreDAO.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\ScoreDAO.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\ScoreDAO.cs",
+              "RelativeToolTip": "DataAccessObjects\\ScoreDAO.cs",
+              "ViewState": "AgIAAJUBAAAAAAAAAAAiwJwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T09:36:55.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScoreController.cs",
+              "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\ScoreController.cs",
+              "RelativeDocumentMoniker": "AlphaAPI\\Controllers\\ScoreController.cs",
+              "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\ScoreController.cs",
+              "RelativeToolTip": "AlphaAPI\\Controllers\\ScoreController.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAAOUAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T09:35:45.375Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Program.cs",
               "RelativeDocumentMoniker": "AlphaAPI\\Program.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Program.cs",
               "RelativeToolTip": "AlphaAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T09:21:39.724Z",
               "EditorCaption": ""

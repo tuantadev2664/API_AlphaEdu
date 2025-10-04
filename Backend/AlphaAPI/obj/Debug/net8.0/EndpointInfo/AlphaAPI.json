@@ -1211,7 +1211,7 @@
         }
       }
     },
-    "/api/Score/parent/child/{studentId}/term/{termId}/full-summary": {
+    "/api/Score/parent/child/{studentId}/term/{termId}/full-": {
       "get": {
         "tags": [
           "Score"
