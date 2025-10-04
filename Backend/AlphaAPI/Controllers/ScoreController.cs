@@ -11,6 +11,7 @@ namespace AlphaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ScoreController : ControllerBase
     {
         private readonly IScoreServices _scoreService;
@@ -172,7 +173,6 @@ namespace AlphaAPI.Controllers
 
 
         [HttpGet("class/{classId:guid}/subject/{subjectId:guid}/term/{termId:guid}/scores")]
-        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetScoresByClassAndSubject(Guid classId, Guid subjectId, Guid termId)
         {
             var result = await _scoreService.GetStudentScoresByClassAndSubjectAsync(classId, subjectId, termId);
@@ -180,7 +180,6 @@ namespace AlphaAPI.Controllers
         }
 
         [HttpGet("class/{classId:guid}/term/{termId:guid}/ranking")]
-        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetClassRanking(Guid classId, Guid termId)
         {
             var ranking = await _scoreService.GetClassRankingAsync(classId, termId);
