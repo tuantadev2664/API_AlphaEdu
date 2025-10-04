@@ -7,27 +7,29 @@ using System.Threading.Tasks;
 
 namespace DataAccessObjects
 {
-    public class AnnouncementDAO
+    public class AnnouncementDAO : BaseDAO<Announcement>
     {
-       
+        public AnnouncementDAO(SchoolDbContext context) : base(context) { }
 
-        // Tạo thông báo
-        public static async Task<Announcement> CreateAnnouncementAsync(Announcement ann)
+        // ============================
+        // 🟢 CREATE
+        // ============================
+        public async Task<Announcement> AddAnnouncementAsync(Announcement ann)
         {
-
-            using var _context = new SchoolDbContext();
+            ann.Id = Guid.NewGuid();
             ann.CreatedAt = DateTime.UtcNow;
-            await _context.Announcements.AddAsync(ann);
+
+            await _dbSet.AddAsync(ann);
             await _context.SaveChangesAsync();
             return ann;
         }
 
-        // Cập nhật thông báo
-        public static async Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)
+        // ============================
+        // 🟡 UPDATE
+        // ============================
+        public async Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)
         {
-
-            using var _context = new SchoolDbContext();
-            var existing = await _context.Announcements.FindAsync(updated.Id);
+            var existing = await _dbSet.FindAsync(updated.Id);
             if (existing == null) return null;
 
             existing.Title = updated.Title;
@@ -41,74 +43,115 @@ namespace DataAccessObjects
             return existing;
         }
 
-        // Xoá thông báo
-        public static async Task<bool> DeleteAnnouncementAsync(Guid id)
+        // ============================
+        // 🔴 DELETE
+        // ============================
+        public async Task<bool> DeleteAnnouncementAsync(Guid id)
         {
+            var existing = await _dbSet.FindAsync(id);
+            if (existing == null) return false;
 
-            using var _context = new SchoolDbContext();
-            var ann = await _context.Announcements.FindAsync(id);
-            if (ann == null) return false;
-
-            _context.Announcements.Remove(ann);
+            _dbSet.Remove(existing);
             await _context.SaveChangesAsync();
             return true;
         }
 
-        // Lấy thông báo theo lớp
-        public static async Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId)
+        // ============================
+        // 🟣 GET BY CLASS + TERM + YEAR
+        // ============================
+        public Task<List<Announcement>> GetAnnouncementsByClassAndTermAsync(Guid classId, Guid termId, Guid academicYearId)
         {
+            return _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
+                .Where(a =>
+                    a.ClassId == classId &&
+                    a.Class.Grade.School.AcademicYears.Any(y => y.Id == academicYearId) &&
+                    (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
+                .OrderByDescending(a => a.CreatedAt)
+                .ToListAsync();
+        }
 
-            using var _context = new SchoolDbContext();
-            return await _context.Announcements
+        // ============================
+        // 🟢 GET BY CLASS
+        // ============================
+        public Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId)
+        {
+            return _dbSet
+                .Include(a => a.Sender)
+                .Include(a => a.Subject)
                 .Where(a => a.ClassId == classId &&
                             (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
         }
 
-        // Lấy thông báo theo môn
-        public static async Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId)
+        // ============================
+        // 🟡 GET BY SUBJECT
+        // ============================
+        public Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId)
         {
-
-            using var _context = new SchoolDbContext();
-            return await _context.Announcements
+            return _dbSet
+                .Include(a => a.Sender)
+                .Include(a => a.Class)
                 .Where(a => a.SubjectId == subjectId &&
                             (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
         }
 
-        // Lấy thông báo theo giáo viên (người gửi)
-        public static async Task<List<Announcement>> GetAnnouncementsBySenderAsync(Guid senderId)
+        // ============================
+        // 🟢 GET BY TEACHER (Sender)
+        // ============================
+        public Task<List<Announcement>> GetAnnouncementsByTeacherAsync(Guid teacherId)
         {
-
-            using var _context = new SchoolDbContext();
-            return await _context.Announcements
-                .Where(a => a.SenderId == senderId)
+            return _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Where(a => a.SenderId == teacherId)
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
         }
 
-        // Lấy thông báo khẩn
-        public static async Task<List<Announcement>> GetUrgentAnnouncementsAsync()
+        // ============================
+        // 🔶 GET URGENT
+        // ============================
+        public Task<List<Announcement>> GetUrgentAnnouncementsAsync()
         {
-
-            using var _context = new SchoolDbContext();
-            return await _context.Announcements
+            return _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
 .Where(a => a.IsUrgent == true && (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
         }
 
-        // Lấy tất cả thông báo còn hiệu lực
-        public static async Task<List<Announcement>> GetActiveAnnouncementsAsync()
+        // ============================
+        // 🟦 GET ACTIVE (còn hiệu lực)
+        // ============================
+        public Task<List<Announcement>> GetActiveAnnouncementsAsync()
         {
-
-            using var _context = new SchoolDbContext();
-            return await _context.Announcements
+            return _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
                 .Where(a => a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow)
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
+        }
+
+        // ============================
+        // 🟢 GET BY ID (chuẩn hóa format)
+        // ============================
+        public override async Task<Announcement?> GetByIdAsync(object id)
+        {
+            return await _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
+                .FirstOrDefaultAsync(a => a.Id == (Guid)id);
         }
     }
 }

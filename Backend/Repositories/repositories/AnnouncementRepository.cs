@@ -9,22 +9,32 @@ using System.Threading.Tasks;
 
 namespace Repositories.repositories
 {
-    public class AnnouncementRepository : IAnnouncementRepository
+    public class AnnouncementRepository : Repository<Announcement>, IAnnouncementRepository
     {
-        public Task<Announcement> CreateAnnouncementAsync(Announcement ann) => AnnouncementDAO.CreateAnnouncementAsync(ann);
+        private readonly AnnouncementDAO _analyticsDAO;
 
-        public Task<bool> DeleteAnnouncementAsync(Guid id)=>AnnouncementDAO.DeleteAnnouncementAsync(id);
+    public AnnouncementRepository(SchoolDbContext context)
+        : base(new AnnouncementDAO(context)) // dùng base chuẩn
+    {
+        _analyticsDAO = new AnnouncementDAO(context); // ép kiểu để dùng hàm riêng
+    }
 
-        public Task<List<Announcement>> GetActiveAnnouncementsAsync()=> AnnouncementDAO.GetActiveAnnouncementsAsync();  
+        public Task<Announcement> AddAnnouncementAsync(Announcement ann)=>_analyticsDAO.AddAnnouncementAsync(ann);
 
-        public Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId)=> AnnouncementDAO.GetAnnouncementsByClassAsync(classId);
+        public Task<bool> DeleteAnnouncementAsync(Guid id)=>_analyticsDAO.DeleteAnnouncementAsync(id);
 
-        public Task<List<Announcement>> GetAnnouncementsBySenderAsync(Guid senderId) => AnnouncementDAO.GetAnnouncementsBySenderAsync(senderId);
+        public Task<List<Announcement>> GetActiveAnnouncementsAsync()=> _analyticsDAO.GetActiveAnnouncementsAsync();
 
-        public Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId)=> AnnouncementDAO.GetAnnouncementsBySubjectAsync (subjectId);
+        public Task<List<Announcement>> GetAnnouncementsByClassAndTermAsync(Guid classId, Guid termId, Guid academicYearId)=>_analyticsDAO.GetAnnouncementsByClassAndTermAsync(classId, termId, academicYearId);
 
-        public Task<List<Announcement>> GetUrgentAnnouncementsAsync()=> AnnouncementDAO.GetUrgentAnnouncementsAsync();
+        public Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId)=>_analyticsDAO.GetAnnouncementsByClassAsync(classId);
 
-        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)=> AnnouncementDAO.UpdateAnnouncementAsync(updated);
+        public Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId)=>_analyticsDAO.GetAnnouncementsBySubjectAsync(subjectId);
+
+        public Task<List<Announcement>> GetAnnouncementsByTeacherAsync(Guid teacherId)=> _analyticsDAO.GetAnnouncementsByTeacherAsync(teacherId);
+
+        public Task<List<Announcement>> GetUrgentAnnouncementsAsync()=> _analyticsDAO.GetUrgentAnnouncementsAsync();
+
+        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)=>_analyticsDAO.UpdateAnnouncementAsync(updated);
     }
 }

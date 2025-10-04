@@ -9,26 +9,22 @@ namespace Repositories.interfaces
 {
     public interface IAnnouncementRepository
     {
-        Task<Announcement> CreateAnnouncementAsync(Announcement ann);
-
+        Task<Announcement> AddAnnouncementAsync(Announcement ann);
         // Cập nhật thông báo
         Task<Announcement?> UpdateAnnouncementAsync(Announcement updated);
-        // Xoá thông báo
         Task<bool> DeleteAnnouncementAsync(Guid id);
-
         // Lấy thông báo theo lớp
-         Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId);
+        Task<List<Announcement>> GetAnnouncementsByClassAndTermAsync(Guid classId, Guid termId, Guid academicYearId);
 
         // Lấy thông báo theo môn
-        Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId);
-
+        Task<List<Announcement>> GetAnnouncementsByClassAsync(Guid classId);
         // Lấy thông báo theo giáo viên (người gửi)
-        Task<List<Announcement>> GetAnnouncementsBySenderAsync(Guid senderId);
-
+        Task<List<Announcement>> GetAnnouncementsBySubjectAsync(Guid subjectId);
         // Lấy thông báo khẩn
-        Task<List<Announcement>> GetUrgentAnnouncementsAsync();
-
+        Task<List<Announcement>> GetAnnouncementsByTeacherAsync(Guid teacherId);
         // Lấy tất cả thông báo còn hiệu lực
+        Task<List<Announcement>> GetUrgentAnnouncementsAsync();
         Task<List<Announcement>> GetActiveAnnouncementsAsync();
+        Task<Announcement?> GetByIdAsync(object id);
     }
 }

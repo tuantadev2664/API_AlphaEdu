@@ -18,20 +18,24 @@ namespace Services.services
         {
             repo = repository;
         }
-        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note)=>repo.AddNoteAsync(note);
+        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note) => repo.AddNoteAsync(note);
 
         public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment) => repo.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
 
-        public Task<bool> DeleteNoteAsync(Guid id)=>repo.DeleteNoteAsync(id);
+        public Task<bool> DeleteNoteAsync(Guid id) => repo.DeleteNoteAsync(id);
 
-        public Task<List<BehaviorNote>> GetAllNotesByStudentAsync(Guid studentId)=>repo.GetAllNotesByStudentAsync(studentId);
+        public Task<object> GetAllNotesByStudentAsync(Guid studentId) => repo.GetAllNotesByStudentAsync(studentId);
 
-        public Task<List<BehaviorNote>> GetNotesByClassAsync(Guid classId, Guid termId)=>repo.GetNotesByClassAsync(classId, termId);
+        public Task<object?> GetNoteDetailAsync(Guid id) => repo.GetNoteDetailAsync(id);
 
-        public Task<List<BehaviorNote>> GetNotesByStudentAsync(Guid studentId, Guid termId)=> repo.GetNotesByStudentAsync(studentId, termId);
+        public Task<object> GetNotesByClassAsync(Guid classId, Guid termId) => repo.GetNotesByClassAsync(classId, termId);
 
-        public Task<List<BehaviorNote>> GetNotesByTeacherAsync(Guid teacherId, Guid termId)=> repo.GetNotesByTeacherAsync(teacherId, termId);
+        public Task<object> GetNotesByStudentAsync(Guid studentId, Guid termId) => repo.GetNotesByStudentAsync(studentId, termId);
 
-        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)=>repo.UpdateNoteAsync(updatedNote);
+        public Task<object> GetNotesByTeacherAsync(Guid teacherId, Guid termId) => repo.GetNotesByTeacherAsync(teacherId, termId);
+
+        public Task<object> GetStudentNotesWithSummaryAsync(Guid studentId, Guid termId) => repo.GetStudentNotesWithSummaryAsync(studentId, termId);
+
+        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote) => repo.UpdateNoteAsync(updatedNote);
     }
 }
