@@ -24,7 +24,6 @@ namespace AlphaAPI.Controllers
 
         // GET: api/students
         [HttpGet]
-        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetAll()
         {
             var students = await _studentService.GetAllStudentsAsync();
@@ -33,7 +32,6 @@ namespace AlphaAPI.Controllers
 
         // GET: api/students/{id}
         [HttpGet("{id:guid}")]
-        [Authorize(Roles = "teacher,admin")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var student = await _studentService.GetStudentByIdAsync(id);
