@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\dataaccessobjects\\studentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1477BBE-7AD2-44B0-BFB1-2C7A6A175587}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\studentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE76C2F4-0BA5-412F-AD12-1843689F0648}|AlphaAPI\\AlphaAPI.csproj|solutionrelative:alphaapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E6378AF-D89E-4E6B-9A53-5E729505CEBA}|Services\\Services.csproj|d:\\bao\\major\\se8\\alp\\api_alphaedu\\backend\\services\\interfaces\\istudentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -122,26 +122,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "StudentDAO.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\StudentDAO.cs",
               "RelativeDocumentMoniker": "DataAccessObjects\\StudentDAO.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\DataAccessObjects\\StudentDAO.cs",
               "RelativeToolTip": "DataAccessObjects\\StudentDAO.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwCQAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwC4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T05:10:43.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StudentController.cs",
               "DocumentMoniker": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "AlphaAPI\\Controllers\\StudentController.cs",
               "ToolTip": "D:\\BAO\\MAJOR\\SE8\\ALP\\API_AlphaEdu\\Backend\\AlphaAPI\\Controllers\\StudentController.cs",
               "RelativeToolTip": "AlphaAPI\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T05:10:20.805Z",
               "EditorCaption": ""
