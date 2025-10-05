@@ -997,7 +997,7 @@
   {
     "ContainingType": "AlphaAPI.Controllers.StudentController",
     "Method": "GetByClass",
-    "RelativePath": "api/Student/class/{classId}/year/{academicYearId}",
+    "RelativePath": "api/Student/class/{classId}/year/{academicYearId}/term/{termId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1009,6 +1009,11 @@
       },
       {
         "Name": "academicYearId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "termId",
         "Type": "System.Guid",
         "IsRequired": true
       }

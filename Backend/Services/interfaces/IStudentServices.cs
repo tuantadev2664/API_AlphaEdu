@@ -11,7 +11,8 @@ namespace Services.interfaces
 
         Task<List<User>> SearchStudentsByNameAsync(string keyword);
 
-        Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId);
+        //Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId);
+        Task<List<object>> GetStudentsByClassAsync(Guid classId, Guid academicYearId, Guid termId);
 
         Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId);
     }

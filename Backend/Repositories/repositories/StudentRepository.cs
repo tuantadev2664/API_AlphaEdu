@@ -27,12 +27,14 @@ namespace Repositories.Repositories
         public async Task<List<User>> SearchStudentsByNameAsync(string keyword)
             => await _studentDAO.SearchStudentsByNameAsync(keyword);
 
-        public async Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
-            => await _studentDAO.GetStudentsByClassAsync(classId, academicYearId);
+        //public async Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
+        //    => await _studentDAO.GetStudentsByClassAsync(classId, academicYearId);
 
         public async Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
             => await _studentDAO.GetStudentsBySchoolAsync(schoolId);
 
         public Task<StudentDetailDto?> GetStudentByIdAsync(Guid id)=> _studentDAO.GetStudentByIdAsync(id);
+
+        public Task<List<object>> GetStudentsByClassAsync(Guid classId, Guid academicYearId, Guid termId) => _studentDAO.GetStudentsByClassAsync(classId,academicYearId, termId);
     }
 }
