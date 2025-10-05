@@ -44,6 +44,7 @@ namespace DataAccessObjects
                 SchoolName = student.School?.Name,
                 Classes = student.ClassEnrollments.Select(ce => new StudentClassDto
                 {
+                    ClassId = ce.ClassId,
                     ClassName = ce.Class?.Name ?? "",
                     GradeName = ce.Class?.Grade?.Level ?? "",
                     AcademicYearName = ce.AcademicYear?.Name ?? ""
