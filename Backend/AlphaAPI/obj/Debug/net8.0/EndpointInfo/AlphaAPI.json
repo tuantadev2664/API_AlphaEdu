@@ -1617,7 +1617,7 @@
         }
       }
     },
-    "/api/Student/class/{classId}/year/{academicYearId}": {
+    "/api/Student/class/{classId}/year/{academicYearId}/term/{termId}": {
       "get": {
         "tags": [
           "Student"
@@ -1634,6 +1634,15 @@
           },
           {
             "name": "academicYearId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "termId",
             "in": "path",
             "required": true,
             "schema": {

@@ -54,12 +54,33 @@ namespace AlphaAPI.Controllers
         }
 
         // GET: api/students/class/{classId}/year/{academicYearId}
-        [HttpGet("class/{classId:guid}/year/{academicYearId:guid}")]
-        public async Task<IActionResult> GetByClass(Guid classId, Guid academicYearId)
+        [HttpGet("class/{classId:guid}/year/{academicYearId:guid}/term/{termId:guid}")]
+        public async Task<IActionResult> GetByClass(Guid classId, Guid academicYearId, Guid termId)
         {
-            var students = await _studentService.GetStudentsByClassAsync(classId, academicYearId);
-            return Ok(students);
+            try
+            {
+                var students = await _studentService.GetStudentsByClassAsync(classId, academicYearId, termId);
+
+                if (students == null || !students.Any())
+                    return Ok(new { message = "Không tìm thấy học sinh trong lớp này.", data = new List<object>() });
+
+                return Ok(new
+                {
+                    message = "Lấy danh sách học sinh thành công.",
+                    total = students.Count,
+                    data = students
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Đã xảy ra lỗi khi lấy danh sách học sinh.",
+                    error = ex.Message
+                });
+            }
         }
+
 
         // GET: api/students/school/{schoolId}
         [HttpGet("school/{schoolId:guid}")]

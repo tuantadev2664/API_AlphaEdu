@@ -24,8 +24,10 @@ namespace Services.services
 
         public Task<StudentDetailDto?> GetStudentByIdAsync(Guid id)=>_studentRepository.GetStudentByIdAsync(id);
 
-        public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
-            => _studentRepository.GetStudentsByClassAsync(classId, academicYearId);
+        public Task<List<object>> GetStudentsByClassAsync(Guid classId, Guid academicYearId, Guid termId) => _studentRepository.GetStudentsByClassAsync(classId, academicYearId, termId);
+
+        //public Task<List<User>> GetStudentsByClassAsync(Guid classId, Guid academicYearId)
+        //    => _studentRepository.GetStudentsByClassAsync(classId, academicYearId);
 
         public Task<List<User>> GetStudentsBySchoolAsync(Guid schoolId)
             => _studentRepository.GetStudentsBySchoolAsync(schoolId);
