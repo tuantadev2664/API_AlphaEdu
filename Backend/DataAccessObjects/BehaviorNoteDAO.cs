@@ -21,7 +21,7 @@ namespace DataAccessObjects
         //    await _context.SaveChangesAsync();
         //    return note;
         //}
-        public async Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request)
+        public async Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request, Guid teacherId)
         {
             var note = new BehaviorNote
             {
@@ -31,7 +31,7 @@ namespace DataAccessObjects
                 TermId = request.TermId,
                 Note = request.Note,
                 Level = request.Level,
-                CreatedBy = request.CreatedBy,
+                CreatedBy = teacherId,
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -50,6 +50,7 @@ namespace DataAccessObjects
                 CreatedAt = note.CreatedAt?.ToString("yyyy-MM-ddTHH:mm:ssZ") ?? ""
             };
         }
+
         // ✅ CREATE từ AI phân tích
         public async Task<BehaviorNote> AddNoteFromAnalysisAsync(
             Guid studentId,

@@ -19,7 +19,7 @@ namespace Services.services
         {
             repo = repository;
         }
-        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request) => repo.AddNoteAsync(request);
+        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request, Guid teacherId) => repo.AddNoteAsync(request, teacherId );
 
         public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment) => repo.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
 

@@ -11,8 +11,7 @@ namespace Repositories.interfaces
     public interface IBehaviorNoteRepository : IRepository<BehaviorNote>
     {
         //Task<BehaviorNote> AddNoteAsync(BehaviorNote note);
-        Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request);
-
+        Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request, Guid teacherId);
         // READ: Ghi chú theo học sinh + học kỳ
         Task<object> GetNotesByStudentAsync(Guid studentId, Guid termId);
 

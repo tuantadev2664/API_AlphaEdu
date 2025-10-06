@@ -20,13 +20,31 @@ namespace AlphaAPI.Controllers
 
         // POST: api/BehaviorNote
         [HttpPost]
+        // POST: api/BehaviorNote
+        [HttpPost]
+        [Authorize(Roles = "teacher,admin")] // chỉ giáo viên hoặc admin mới được thêm ghi chú
         public async Task<IActionResult> AddNote([FromBody] CreateBehaviorNoteRequest request)
         {
             if (request == null)
                 return BadRequest("Invalid request data.");
 
-            var result = await _service.AddNoteAsync(request);
-            return Ok(result);
+            // ✅ Lấy ID giáo viên từ JWT token
+            var teacherIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+                              ?? User.FindFirst(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub)?.Value;
+
+            if (teacherIdClaim == null)
+                return Unauthorized("Token không hợp lệ hoặc thiếu thông tin giáo viên.");
+
+            var teacherId = Guid.Parse(teacherIdClaim);
+
+            // ✅ Gọi service (truyền thêm teacherId)
+            var result = await _service.AddNoteAsync(request, teacherId);
+
+            return Ok(new
+            {
+                message = "Thêm ghi chú hành vi thành công.",
+                data = result
+            });
         }
 
         // GET: api/BehaviorNote/student/{studentId}/{termId}
