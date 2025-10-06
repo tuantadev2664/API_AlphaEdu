@@ -19,7 +19,7 @@ namespace Repositories.repositories
             _dao = new BehaviorNoteDAO(context);
         }
 
-        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request) => _dao.AddNoteAsync(request);
+        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request, Guid teacherId) => _dao.AddNoteAsync(request, teacherId);
 
         public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment)=> _dao.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
 

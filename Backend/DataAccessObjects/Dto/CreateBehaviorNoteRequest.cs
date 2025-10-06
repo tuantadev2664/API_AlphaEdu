@@ -13,6 +13,5 @@ namespace DataAccessObjects.Dto
         public Guid TermId { get; set; }
         public string Note { get; set; } = string.Empty;
         public string Level { get; set; } = string.Empty;
-        public Guid CreatedBy { get; set; }
     }
 }
