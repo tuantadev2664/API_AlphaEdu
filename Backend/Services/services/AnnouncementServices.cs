@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Repositories.Interfaces;
 using Services.interfaces;
@@ -21,10 +22,9 @@ namespace Services.services
             _analyticsRepository = analyticsRepository;
         }
 
+        public Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId)=> _analyticsRepository.AddAnnouncementAsync(request, senderId);
 
-        public Task<Announcement> AddAnnouncementAsync(Announcement ann) => _analyticsRepository.AddAnnouncementAsync(ann);
-
-        public Task<bool> DeleteAnnouncementAsync(Guid id) => _analyticsRepository.DeleteAnnouncementAsync(id);
+        public Task<bool> DeleteAnnouncementAsync(Guid id)=> _analyticsRepository.DeleteAnnouncementAsync(id);
 
         public Task<List<Announcement>> GetActiveAnnouncementsAsync() => _analyticsRepository.GetActiveAnnouncementsAsync();
 
@@ -38,6 +38,6 @@ namespace Services.services
 
         public Task<List<Announcement>> GetUrgentAnnouncementsAsync() => _analyticsRepository.GetUrgentAnnouncementsAsync();
 
-        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated) => _analyticsRepository.UpdateAnnouncementAsync(updated);
+        public Task<TeacherAnnouncementItem?> UpdateAnnouncementAsync(UpdateAnnouncementRequest request)=> _analyticsRepository.UpdateAnnouncementAsync(request);
     }
 }

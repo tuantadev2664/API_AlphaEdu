@@ -1,7 +1,9 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
+using System.Security.Claims;
 
 namespace AlphaAPI.Controllers
 {
@@ -74,27 +76,36 @@ namespace AlphaAPI.Controllers
 
         // ✅ [POST] Tạo mới thông báo
         [HttpPost]
-        public async Task<IActionResult> AddAnnouncement([FromBody] Announcement ann)
+        public async Task<IActionResult> AddAnnouncement([FromBody] CreateAnnouncementRequest request)
         {
-            if (ann == null)
-                return BadRequest("Announcement cannot be null.");
+            if (request == null)
+                return BadRequest("Announcement request cannot be null.");
 
-            var created = await _service.AddAnnouncementAsync(ann);
+            // 🧩 Lấy senderId từ JWT
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var senderIdStr = identity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(senderIdStr))
+                return Unauthorized("Không thể xác định người gửi từ token.");
+
+            var senderId = Guid.Parse(senderIdStr);
+
+            var created = await _service.AddAnnouncementAsync(request, senderId);
             return CreatedAtAction(nameof(GetActiveAnnouncements), new { id = created.Id }, created);
         }
 
+
         // ✅ [PUT] Cập nhật thông báo
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAnnouncement(Guid id, [FromBody] Announcement updated)
+        public async Task<IActionResult> UpdateAnnouncement(Guid id, [FromBody] UpdateAnnouncementRequest request)
         {
-            if (updated == null || id != updated.Id)
+            if (request == null || id != request.Id)
                 return BadRequest("Invalid announcement data.");
 
-            var result = await _service.UpdateAnnouncementAsync(updated);
-            if (result == null)
+            var updated = await _service.UpdateAnnouncementAsync(request);
+            if (updated == null)
                 return NotFound();
 
-            return Ok(result);
+            return Ok(updated);
         }
 
         // ✅ [DELETE] Xoá thông báo

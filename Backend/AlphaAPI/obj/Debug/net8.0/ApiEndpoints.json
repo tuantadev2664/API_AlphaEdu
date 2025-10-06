@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ann",
-        "Type": "BusinessObjects.Models.Announcement",
+        "Name": "request",
+        "Type": "DataAccessObjects.Dto.CreateAnnouncementRequest",
         "IsRequired": true
       }
     ],
@@ -29,8 +29,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updated",
-        "Type": "BusinessObjects.Models.Announcement",
+        "Name": "request",
+        "Type": "DataAccessObjects.Dto.UpdateAnnouncementRequest",
         "IsRequired": true
       }
     ],
