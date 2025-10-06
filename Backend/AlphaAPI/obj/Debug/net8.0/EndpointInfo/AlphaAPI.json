@@ -148,17 +148,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/CreateAnnouncementRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/CreateAnnouncementRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/CreateAnnouncementRequest"
               }
             }
           }
@@ -190,17 +190,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/UpdateAnnouncementRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/UpdateAnnouncementRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Announcement"
+                "$ref": "#/components/schemas/UpdateAnnouncementRequest"
               }
             }
           }
@@ -2152,6 +2152,37 @@
         },
         "additionalProperties": false
       },
+      "CreateAnnouncementRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "classId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subjectId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isUrgent": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateAssessmentRequest": {
         "type": "object",
         "properties": {
@@ -2718,6 +2749,41 @@
               "$ref": "#/components/schemas/GradeComponent"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateAnnouncementRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "classId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subjectId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isUrgent": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace Repositories.repositories
         _analyticsDAO = new AnnouncementDAO(context); // ép kiểu để dùng hàm riêng
     }
 
-        public Task<Announcement> AddAnnouncementAsync(Announcement ann)=>_analyticsDAO.AddAnnouncementAsync(ann);
+        public Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId)=> _analyticsDAO.AddAnnouncementAsync(request, senderId);
 
-        public Task<bool> DeleteAnnouncementAsync(Guid id)=>_analyticsDAO.DeleteAnnouncementAsync(id);
+        public Task<bool> DeleteAnnouncementAsync(Guid id)=> _analyticsDAO.DeleteAnnouncementAsync(id);
 
         public Task<List<Announcement>> GetActiveAnnouncementsAsync()=> _analyticsDAO.GetActiveAnnouncementsAsync();
 
@@ -35,6 +36,6 @@ namespace Repositories.repositories
 
         public Task<List<Announcement>> GetUrgentAnnouncementsAsync()=> _analyticsDAO.GetUrgentAnnouncementsAsync();
 
-        public Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)=>_analyticsDAO.UpdateAnnouncementAsync(updated);
+        public Task<TeacherAnnouncementItem?> UpdateAnnouncementAsync(UpdateAnnouncementRequest request)=> _analyticsDAO.UpdateAnnouncementAsync(request);
     }
 }

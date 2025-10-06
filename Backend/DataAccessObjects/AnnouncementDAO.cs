@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,33 +15,57 @@ namespace DataAccessObjects
         // ============================
         // 🟢 CREATE
         // ============================
-        public async Task<Announcement> AddAnnouncementAsync(Announcement ann)
+        public async Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId)
         {
-            ann.Id = Guid.NewGuid();
-            ann.CreatedAt = DateTime.UtcNow;
+            var ann = new Announcement
+            {
+                Id = Guid.NewGuid(),
+                Title = request.Title,
+                Content = request.Content,
+                SenderId = senderId,
+                ClassId = request.ClassId,
+                SubjectId = request.SubjectId,
+                ExpiresAt = request.ExpiresAt,
+                IsUrgent = request.IsUrgent,
+                CreatedAt = DateTime.UtcNow
+            };
 
             await _dbSet.AddAsync(ann);
             await _context.SaveChangesAsync();
-            return ann;
+
+            // Load thêm dữ liệu liên quan để trả về đầy đủ thông tin
+            ann = await _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
+                .FirstAsync(a => a.Id == ann.Id);
+
+            return MapToDto(ann);
         }
 
         // ============================
         // 🟡 UPDATE
         // ============================
-        public async Task<Announcement?> UpdateAnnouncementAsync(Announcement updated)
+        public async Task<TeacherAnnouncementItem?> UpdateAnnouncementAsync(UpdateAnnouncementRequest request)
         {
-            var existing = await _dbSet.FindAsync(updated.Id);
+            var existing = await _dbSet
+                .Include(a => a.Class)
+                .Include(a => a.Subject)
+                .Include(a => a.Sender)
+                .FirstOrDefaultAsync(a => a.Id == request.Id);
+
             if (existing == null) return null;
 
-            existing.Title = updated.Title;
-            existing.Content = updated.Content;
-            existing.ExpiresAt = updated.ExpiresAt;
-            existing.IsUrgent = updated.IsUrgent;
-            existing.SubjectId = updated.SubjectId;
-            existing.ClassId = updated.ClassId;
+            existing.Title = request.Title;
+            existing.Content = request.Content;
+            existing.ExpiresAt = request.ExpiresAt;
+            existing.IsUrgent = request.IsUrgent;
+            existing.SubjectId = request.SubjectId;
+            existing.ClassId = request.ClassId;
 
             await _context.SaveChangesAsync();
-            return existing;
+
+            return MapToDto(existing);
         }
 
         // ============================
@@ -123,7 +148,7 @@ namespace DataAccessObjects
                 .Include(a => a.Class)
                 .Include(a => a.Subject)
                 .Include(a => a.Sender)
-.Where(a => a.IsUrgent == true && (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
+                .Where(a => a.IsUrgent == true && (a.ExpiresAt == null || a.ExpiresAt > DateTime.UtcNow))
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync();
         }
@@ -152,6 +177,28 @@ namespace DataAccessObjects
                 .Include(a => a.Subject)
                 .Include(a => a.Sender)
                 .FirstOrDefaultAsync(a => a.Id == (Guid)id);
+        }
+
+        // ============================
+        // 🧭 MAP FUNCTION
+        // ============================
+        private static TeacherAnnouncementItem MapToDto(Announcement a)
+        {
+            return new TeacherAnnouncementItem
+            {
+                Id = a.Id,
+                Title = a.Title,
+                Content = a.Content,
+                CreatedAt = a.CreatedAt,
+                ExpiresAt = a.ExpiresAt,
+                IsUrgent = a.IsUrgent,
+                ClassId = a.ClassId,
+                ClassName = a.Class?.Name,
+                SubjectId = a.SubjectId,
+                SubjectName = a.Subject?.Name,
+                SenderId = a.SenderId,
+                SenderName = a.Sender?.FullName
+            };
         }
     }
 }
