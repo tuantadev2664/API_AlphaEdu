@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Services.interfaces
 {
     public interface IBehaviorNoteServices : IService<BehaviorNote>
     {
-        Task<BehaviorNote> AddNoteAsync(BehaviorNote note);
-
+        //Task<BehaviorNote> AddNoteAsync(BehaviorNote note);
+        Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request);
         // READ: Ghi chú theo học sinh + học kỳ
         Task<object> GetNotesByStudentAsync(Guid studentId, Guid termId);
 
@@ -18,7 +19,7 @@ namespace Services.interfaces
         Task<object> GetNotesByClassAsync(Guid classId, Guid termId);
 
         // UPDATE
-        Task<bool> UpdateNoteAsync(BehaviorNote updatedNote);
+        Task<UpdateBehaviorNoteResponse?> UpdateNoteAsync(UpdateBehaviorNoteRequest request);
 
         // DELETE
         Task<bool> DeleteNoteAsync(Guid id);

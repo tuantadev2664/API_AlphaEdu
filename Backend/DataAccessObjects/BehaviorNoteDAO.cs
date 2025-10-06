@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,43 @@ namespace DataAccessObjects
         public BehaviorNoteDAO(SchoolDbContext context) : base(context) { }
 
         // CREATE
-        public async Task<BehaviorNote> AddNoteAsync(BehaviorNote note)
+        //public async Task<BehaviorNote> AddNoteAsync(BehaviorNote note)
+        //{
+        //    note.Id = Guid.NewGuid();
+        //    note.CreatedAt = DateTime.UtcNow;
+        //    await _dbSet.AddAsync(note);
+        //    await _context.SaveChangesAsync();
+        //    return note;
+        //}
+        public async Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request)
         {
-            note.Id = Guid.NewGuid();
-            note.CreatedAt = DateTime.UtcNow;
+            var note = new BehaviorNote
+            {
+                Id = Guid.NewGuid(),
+                StudentId = request.StudentId,
+                ClassId = request.ClassId,
+                TermId = request.TermId,
+                Note = request.Note,
+                Level = request.Level,
+                CreatedBy = request.CreatedBy,
+                CreatedAt = DateTime.UtcNow
+            };
+
             await _dbSet.AddAsync(note);
             await _context.SaveChangesAsync();
-            return note;
-        }
 
+            return new CreateBehaviorNoteResponse
+            {
+                Id = note.Id,
+                StudentId = note.StudentId,
+                ClassId = note.ClassId,
+                TermId = note.TermId,
+                Note = note.Note ?? "",
+                Level = note.Level ?? "",
+                CreatedBy = note.CreatedBy,
+                CreatedAt = note.CreatedAt?.ToString("yyyy-MM-ddTHH:mm:ssZ") ?? ""
+            };
+        }
         // ✅ CREATE từ AI phân tích
         public async Task<BehaviorNote> AddNoteFromAnalysisAsync(
             Guid studentId,
@@ -129,20 +158,36 @@ namespace DataAccessObjects
         }
 
         // UPDATE
-        public async Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)
+        public async Task<UpdateBehaviorNoteResponse?> UpdateNoteAsync(UpdateBehaviorNoteRequest request)
         {
-            var existing = await _dbSet.FindAsync(updatedNote.Id);
-            if (existing == null) return false;
+            var existing = await _dbSet
+                .Include(n => n.Student)
+                .Include(n => n.Class)
+                .Include(n => n.Term)
+                .Include(n => n.CreatedByNavigation)
+                .FirstOrDefaultAsync(n => n.Id == request.Id);
 
-            existing.Note = updatedNote.Note;
-            existing.Level = updatedNote.Level;
-            existing.ClassId = updatedNote.ClassId;
-            existing.TermId = updatedNote.TermId;
+            if (existing == null) return null;
+
+            existing.Note = request.Note;
+            existing.Level = request.Level;
             existing.CreatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
-            return true;
+
+            return new UpdateBehaviorNoteResponse
+            {
+                Id = existing.Id,
+                StudentId = existing.StudentId,
+                ClassId = existing.ClassId,
+                TermId = existing.TermId,
+                Note = existing.Note ?? "",
+                Level = existing.Level ?? "",
+                CreatedBy = existing.CreatedBy,
+                CreatedAt = existing.CreatedAt?.ToString("yyyy-MM-ddTHH:mm:ssZ") ?? "",
+            };
         }
+
 
         // DELETE
         public async Task<bool> DeleteNoteAsync(Guid id)

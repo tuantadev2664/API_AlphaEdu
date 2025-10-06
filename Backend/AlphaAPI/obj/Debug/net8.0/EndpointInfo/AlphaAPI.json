@@ -401,17 +401,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/CreateBehaviorNoteRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/CreateBehaviorNoteRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/CreateBehaviorNoteRequest"
               }
             }
           }
@@ -562,17 +562,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/UpdateBehaviorNoteRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/UpdateBehaviorNoteRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
+                "$ref": "#/components/schemas/UpdateBehaviorNoteRequest"
               }
             }
           }
@@ -598,37 +598,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/BehaviorNote/confirm-ai": {
-      "post": {
-        "tags": [
-          "BehaviorNote"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BehaviorNote"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -2214,6 +2183,36 @@
         },
         "additionalProperties": false
       },
+      "CreateBehaviorNoteRequest": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "classId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "termId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "Grade": {
         "type": "object",
         "properties": {
@@ -2722,6 +2721,24 @@
             "items": {
               "$ref": "#/components/schemas/GradeComponent"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateBehaviorNoteRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "string",
             "nullable": true
           }
         },

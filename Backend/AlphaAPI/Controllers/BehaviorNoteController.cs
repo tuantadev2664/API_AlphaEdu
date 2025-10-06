@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.interfaces;
@@ -19,10 +20,12 @@ namespace AlphaAPI.Controllers
 
         // POST: api/BehaviorNote
         [HttpPost]
-        public async Task<IActionResult> AddNote([FromBody] BehaviorNote note)
+        public async Task<IActionResult> AddNote([FromBody] CreateBehaviorNoteRequest request)
         {
-            if (note == null) return BadRequest("Note cannot be null");
-            var result = await _service.AddNoteAsync(note);
+            if (request == null)
+                return BadRequest("Invalid request data.");
+
+            var result = await _service.AddNoteAsync(request);
             return Ok(result);
         }
 
@@ -59,17 +62,20 @@ namespace AlphaAPI.Controllers
         }
 
         // PUT: api/BehaviorNote/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateNote(Guid id, [FromBody] BehaviorNote updatedNote)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateNote(Guid id, [FromBody] UpdateBehaviorNoteRequest request)
         {
-            if (updatedNote == null || updatedNote.Id != id)
-                return BadRequest("Invalid request");
+            if (request == null || request.Id != id)
+                return BadRequest("Dữ liệu không hợp lệ hoặc ID không khớp.");
 
-            var success = await _service.UpdateNoteAsync(updatedNote);
-            if (!success) return NotFound("Note not found");
+            var result = await _service.UpdateNoteAsync(request);
 
-            return Ok("Note updated successfully");
+            if (result == null)
+                return NotFound("Không tìm thấy ghi chú hành vi cần cập nhật.");
+
+            return Ok(result);
         }
+
 
         // DELETE: api/BehaviorNote/{id}
         [HttpDelete("{id}")]
@@ -82,22 +88,22 @@ namespace AlphaAPI.Controllers
         }
 
         // POST: api/BehaviorNote/confirm-ai
-        [HttpPost("confirm-ai")]
-        [Authorize(Roles = "teacher,admin")]
-        public async Task<IActionResult> ConfirmNoteFromAI([FromBody] BehaviorNote note)
-        {
-            if (note == null) return BadRequest("Note cannot be null");
+        //[HttpPost("confirm-ai")]
+        //[Authorize(Roles = "teacher,admin")]
+        //public async Task<IActionResult> ConfirmNoteFromAI([FromBody] BehaviorNote note)
+        //{
+        //    if (note == null) return BadRequest("Note cannot be null");
 
-            // override CreatedBy từ token user
-            note.CreatedBy = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+        //    // override CreatedBy từ token user
+        //    note.CreatedBy = Guid.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
 
-            var result = await _service.AddNoteAsync(note);
-            return Ok(new
-            {
-                Message = "AI note confirmed and saved successfully",
-                Note = result
-            });
-        }
+        //    var result = await _service.AddNoteAsync(note);
+        //    return Ok(new
+        //    {
+        //        Message = "AI note confirmed and saved successfully",
+        //        Note = result
+        //    });
+        //}
 
     }
 }
