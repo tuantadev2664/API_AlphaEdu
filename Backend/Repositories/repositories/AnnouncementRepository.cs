@@ -22,7 +22,7 @@ namespace Repositories.repositories
 
         public Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId)=> _analyticsDAO.AddAnnouncementAsync(request, senderId);
 
-        public Task<bool> DeleteAnnouncementAsync(Guid id)=> _analyticsDAO.DeleteAnnouncementAsync(id);
+        public Task<DeleteAnnouncementResponse> DeleteAnnouncementAsync(Guid id)=> _analyticsDAO.DeleteAnnouncementAsync(id);
 
         public Task<List<Announcement>> GetActiveAnnouncementsAsync()=> _analyticsDAO.GetActiveAnnouncementsAsync();
 

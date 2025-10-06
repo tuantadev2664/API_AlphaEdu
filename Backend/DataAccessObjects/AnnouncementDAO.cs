@@ -71,15 +71,28 @@ namespace DataAccessObjects
         // ============================
         // 🔴 DELETE
         // ============================
-        public async Task<bool> DeleteAnnouncementAsync(Guid id)
+        public async Task<DeleteAnnouncementResponse> DeleteAnnouncementAsync(Guid id)
         {
             var existing = await _dbSet.FindAsync(id);
-            if (existing == null) return false;
+            if (existing == null)
+            {
+                return new DeleteAnnouncementResponse
+                {
+                    Success = false,
+                    Message = "Không tìm thấy thông báo cần xóa."
+                };
+            }
 
             _dbSet.Remove(existing);
             await _context.SaveChangesAsync();
-            return true;
+
+            return new DeleteAnnouncementResponse
+            {
+                Success = true,
+                Message = "Đã xóa thông báo thành công."
+            };
         }
+
 
         // ============================
         // 🟣 GET BY CLASS + TERM + YEAR
