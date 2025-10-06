@@ -255,8 +255,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "note",
-        "Type": "BusinessObjects.Models.BehaviorNote",
+        "Name": "request",
+        "Type": "DataAccessObjects.Dto.CreateBehaviorNoteRequest",
         "IsRequired": true
       }
     ],
@@ -276,8 +276,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedNote",
-        "Type": "BusinessObjects.Models.BehaviorNote",
+        "Name": "request",
+        "Type": "DataAccessObjects.Dto.UpdateBehaviorNoteRequest",
         "IsRequired": true
       }
     ],
@@ -315,22 +315,6 @@
       {
         "Name": "termId",
         "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AlphaAPI.Controllers.BehaviorNoteController",
-    "Method": "ConfirmNoteFromAI",
-    "RelativePath": "api/BehaviorNote/confirm-ai",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "note",
-        "Type": "BusinessObjects.Models.BehaviorNote",
         "IsRequired": true
       }
     ],

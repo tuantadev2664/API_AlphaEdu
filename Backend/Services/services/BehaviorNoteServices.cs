@@ -1,4 +1,5 @@
 ﻿using BusinessObjects.Models;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using Services.interfaces;
 using System;
@@ -18,7 +19,7 @@ namespace Services.services
         {
             repo = repository;
         }
-        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note) => repo.AddNoteAsync(note);
+        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request) => repo.AddNoteAsync(request);
 
         public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment) => repo.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
 
@@ -36,6 +37,6 @@ namespace Services.services
 
         public Task<object> GetStudentNotesWithSummaryAsync(Guid studentId, Guid termId) => repo.GetStudentNotesWithSummaryAsync(studentId, termId);
 
-        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote) => repo.UpdateNoteAsync(updatedNote);
+        public Task<UpdateBehaviorNoteResponse?> UpdateNoteAsync(UpdateBehaviorNoteRequest request) => repo.UpdateNoteAsync(request);
     }
 }

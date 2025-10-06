@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects;
+using DataAccessObjects.Dto;
 using Repositories.interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Repositories.repositories
             _dao = new BehaviorNoteDAO(context);
         }
 
-        public Task<BehaviorNote> AddNoteAsync(BehaviorNote note) => _dao.AddNoteAsync(note);
+        public Task<CreateBehaviorNoteResponse> AddNoteAsync(CreateBehaviorNoteRequest request) => _dao.AddNoteAsync(request);
 
         public Task<BehaviorNote> AddNoteFromAnalysisAsync(Guid studentId, Guid classId, Guid termId, Guid teacherId, string riskLevel, string comment)=> _dao.AddNoteFromAnalysisAsync(studentId, classId, termId, teacherId, riskLevel, comment);
 
@@ -36,6 +37,6 @@ namespace Repositories.repositories
 
         public Task<object> GetStudentNotesWithSummaryAsync(Guid studentId, Guid termId)=> _dao.GetStudentNotesWithSummaryAsync(studentId,termId);
 
-        public Task<bool> UpdateNoteAsync(BehaviorNote updatedNote)=> _dao.UpdateNoteAsync(updatedNote);
+        public Task<UpdateBehaviorNoteResponse?> UpdateNoteAsync(UpdateBehaviorNoteRequest request)=> _dao.UpdateNoteAsync(request);
     }
 }
