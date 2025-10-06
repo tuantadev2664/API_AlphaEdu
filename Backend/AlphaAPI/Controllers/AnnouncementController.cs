@@ -112,11 +112,13 @@ namespace AlphaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAnnouncement(Guid id)
         {
-            var success = await _service.DeleteAnnouncementAsync(id);
-            if (!success)
-                return NotFound();
+            var result = await _service.DeleteAnnouncementAsync(id);
 
-            return NoContent();
+            if (!result.Success)
+                return NotFound(new { result.Success,result.Message });
+
+            return Ok(new { result.Success,result.Message });
         }
+
     }
 }

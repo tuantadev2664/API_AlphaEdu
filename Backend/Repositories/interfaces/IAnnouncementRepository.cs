@@ -12,8 +12,7 @@ namespace Repositories.interfaces
     {
         Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId);        // Cập nhật thông báo
         Task<TeacherAnnouncementItem?> UpdateAnnouncementAsync(UpdateAnnouncementRequest request);
-        Task<bool> DeleteAnnouncementAsync(Guid id);
-        // Lấy thông báo theo lớp
+        Task<DeleteAnnouncementResponse> DeleteAnnouncementAsync(Guid id);        // Lấy thông báo theo lớp
         Task<List<Announcement>> GetAnnouncementsByClassAndTermAsync(Guid classId, Guid termId, Guid academicYearId);
 
         // Lấy thông báo theo môn

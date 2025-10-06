@@ -24,7 +24,7 @@ namespace Services.services
 
         public Task<TeacherAnnouncementItem> AddAnnouncementAsync(CreateAnnouncementRequest request, Guid senderId)=> _analyticsRepository.AddAnnouncementAsync(request, senderId);
 
-        public Task<bool> DeleteAnnouncementAsync(Guid id)=> _analyticsRepository.DeleteAnnouncementAsync(id);
+        public Task<DeleteAnnouncementResponse> DeleteAnnouncementAsync(Guid id) => _analyticsRepository.DeleteAnnouncementAsync(id);
 
         public Task<List<Announcement>> GetActiveAnnouncementsAsync() => _analyticsRepository.GetActiveAnnouncementsAsync();
 
